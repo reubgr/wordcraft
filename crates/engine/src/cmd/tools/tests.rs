@@ -81,6 +81,54 @@ fn compare_marks_an_empty_paragraphs_mark() {
 }
 
 #[test]
+fn compare_marks_the_last_paragraphs_mark() {
+    // Inserted last paragraph: rejecting removes it whole.
+    let mut s = Session::new(Document::from_text("A\nB"));
+    s.run("review.compare", &json!({"text": "A\nB\nNEW"})).unwrap();
+    assert_eq!(s.doc.body.len(), 3);
+    assert!(s.doc.body[2].as_para().unwrap().mark.ins.is_some());
+    s.run("review.rejectAll", &json!({})).unwrap();
+    assert_eq!(s.doc.plain_text(StoryRef::Body), "A\nB");
+    assert_eq!(s.doc.body.len(), 2);
+    assert_eq!(empty_paras(&s), 0);
+    let mut s = Session::new(Document::from_text("A\nB"));
+    s.run("review.compare", &json!({"text": "A\nB\nNEW"})).unwrap();
+    s.run("review.acceptAll", &json!({})).unwrap();
+    assert_eq!(s.doc.plain_text(StoryRef::Body), "A\nB\nNEW");
+    assert_eq!(s.doc.body.len(), 3);
+    assert_eq!(empty_paras(&s), 0);
+
+    // Deleted last paragraph: accepting removes it whole.
+    let mut s = Session::new(Document::from_text("A\nB\nOLD"));
+    s.run("review.compare", &json!({"text": "A\nB"})).unwrap();
+    assert_eq!(s.doc.body.len(), 3);
+    assert!(s.doc.body[2].as_para().unwrap().mark.del.is_some());
+    s.run("review.acceptAll", &json!({})).unwrap();
+    assert_eq!(s.doc.plain_text(StoryRef::Body), "A\nB");
+    assert_eq!(s.doc.body.len(), 2);
+    assert_eq!(empty_paras(&s), 0);
+    let mut s = Session::new(Document::from_text("A\nB\nOLD"));
+    s.run("review.compare", &json!({"text": "A\nB"})).unwrap();
+    s.run("review.rejectAll", &json!({})).unwrap();
+    assert_eq!(s.doc.plain_text(StoryRef::Body), "A\nB\nOLD");
+    assert_eq!(s.doc.body.len(), 3);
+    assert_eq!(empty_paras(&s), 0);
+}
+
+#[test]
+fn compare_keeps_the_only_paragraphs_mark() {
+    let mut s = Session::new(Document::from_text(""));
+    s.doc.revisions.push(wordcraft_doc::Revision {
+        kind: wordcraft_doc::RevisionKind::Insert,
+        author: s.author.clone(), date: String::new(), move_name: None,
+    });
+    s.doc.para_mut(StoryRef::Body, &wordcraft_doc::Path::top(0)).unwrap().mark.ins = Some(0);
+    s.run("review.rejectAll", &json!({})).unwrap();
+    assert_eq!(s.doc.body.len(), 1);
+    assert!(s.doc.body[0].as_para().unwrap().mark.ins.is_none());
+}
+
+#[test]
 fn compare_options_ignore_case_and_white_space() {
     let original = "The Cat sat.\nTwo  spaces here.";
     let revised = "The cat sat.\nTwo spaces here.";

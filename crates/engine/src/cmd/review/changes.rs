@@ -53,8 +53,9 @@ fn resolve_para(
     }
     // An inserted paragraph mark that is rejected, or a deleted one that is accepted, goes away:
     // the next paragraph joins this one (the split is undone). A paragraph left empty goes away
-    // whole, so the next one keeps its own style and numbering, as in Word. The mark at the end
-    // of a story or cell can't go, so it just stops being a revision.
+    // whole, so the next one keeps its own style and numbering, as in Word. The end mark of a
+    // story or cell has no follower to join here; `resolve_all` removes the whole paragraph
+    // instead when one is left over (see `remove_trailing_para`).
     if ((del.is_some() && accept) || (ins.is_some() && !accept))
         && (crate::cmd::remove_empty_para(s, story, path)? || crate::cmd::join_next_para(s, story, path)?)
     {
@@ -65,6 +66,23 @@ fn resolve_para(
     para.mark.del = None;
     para.touch();
     Ok(())
+}
+
+/// Remove the whole paragraph at `path` when a whole-paragraph revision on its mark resolved to
+/// removal and it is the last paragraph in its container and carries no section break: it goes
+/// away, as long as the container keeps another paragraph (a story or cell must never end up
+/// with none). `false`, changing nothing, otherwise.
+fn remove_trailing_para(s: &mut Session, story: StoryRef, path: &wordcraft_doc::Path) -> Result<bool, CmdError> {
+    let Some(p) = s.doc.para(story, path) else { return Ok(false) };
+    if !p.is_empty() || p.section.is_some() {
+        return Ok(false);
+    }
+    let Some(container) = s.doc.container(story, path) else { return Ok(false) };
+    if container.iter().filter(|b| b.as_para().is_some()).count() <= 1 {
+        return Ok(false);
+    }
+    s.doc.remove_block(story, path)?;
+    Ok(true)
 }
 
 /// Accept or reject the changes of the table cell `path` is in: the table's, its row's and the
@@ -183,8 +201,16 @@ fn resolve_all(s: &mut Session, accept: bool) -> CmdResult {
     let stories: Vec<StoryRef> = std::iter::once(StoryRef::Body).chain(s.doc.parts.keys().map(|k| StoryRef::Part(*k))).collect();
     for st in stories {
         for path in s.doc.para_paths(st).into_iter().rev() {
+            // A whole-paragraph mark that resolves to removal at the end of its container takes
+            // the paragraph with it (there is no follower for `resolve_para` to join).
+            let trailing = s.doc.para(st, &path).is_some_and(|p| {
+                ((p.mark.del.is_some() && accept) || (p.mark.ins.is_some() && !accept)) && !crate::cmd::has_next_para(s, st, &path)
+            });
             let len = s.doc.para(st, &path).map(|p| p.len()).unwrap_or(0);
             resolve_para(s, st, &path, (0, len), (true, true), accept)?;
+            if trailing {
+                remove_trailing_para(s, st, &path)?;
+            }
         }
     }
     // Tables, rows, cells and sections.

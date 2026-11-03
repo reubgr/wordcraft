@@ -179,11 +179,10 @@ fn block_text(b: &Block, depth: usize) -> String {
 
 /// A copy of the block with every run (in tables, every cell's) changed by `f`, and a paragraph's
 /// mark along with them, so a whole inserted or deleted paragraph carries the revision even when
-/// the paragraph is empty (`format` returns early for a length-0 range).
-///
-/// Known limitation: resolving a revision needs a following paragraph, so a paragraph inserted at
-/// the very end (rejected) or deleted from the very end (accepted) still leaves one empty
-/// paragraph. That is a separate follow-up, not handled here.
+/// the paragraph is empty (`format` returns early for a length-0 range). A whole-paragraph
+/// revision on the last paragraph of a story or cell is removed together with the paragraph on
+/// Accept/Reject All (see `remove_trailing_para` in `review::changes`), except where the paragraph
+/// carries a section break or is the container's only paragraph.
 fn mark_block(b: &Block, f: &dyn Fn(&mut CharProps), depth: usize) -> Block {
     match b {
         Block::Para(p) => {
