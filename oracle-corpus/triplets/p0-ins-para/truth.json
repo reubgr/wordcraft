@@ -1,0 +1,37 @@
+{
+  "id": "p0-ins-para",
+  "change_type": "insert_paragraph",
+  "description": "One whole paragraph inserted as paragraph 2 of a 3-paragraph document (revised document has 4 paragraphs).",
+  "base_paragraphs": [
+    "This memorandum summarises the matters discussed at the partners meeting held on Monday morning.",
+    "The first item concerned the timetable for the annual audit and the appointment of the reporting accountants.",
+    "The meeting closed with an agreement to circulate the draft minutes before the end of the week."
+  ],
+  "revised_paragraphs": [
+    "This memorandum summarises the matters discussed at the partners meeting held on Monday morning.",
+    "A further item concerned the renewal of the office lease and the costs of the proposed refurbishment.",
+    "The first item concerned the timetable for the annual audit and the appointment of the reporting accountants.",
+    "The meeting closed with an agreement to circulate the draft minutes before the end of the week."
+  ],
+  "inserted_tokens": [
+    "A",
+    "further",
+    "item",
+    "concerned",
+    "the",
+    "renewal",
+    "of",
+    "the",
+    "office",
+    "lease",
+    "and",
+    "the",
+    "costs",
+    "of",
+    "the",
+    "proposed",
+    "refurbishment."
+  ],
+  "deleted_tokens": [],
+  "substituted": []
+}

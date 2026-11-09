@@ -1,0 +1,9 @@
+{
+  "id": "p2m-list-restart",
+  "change_type": "numbering_restart",
+  "description": "Identical list text; in revised, Gamma/Delta sit in a new numbering instance with startOverride=1, so Gamma displays as 1 instead of 3.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Text identical; only numbering definition differs. Score via numberingChange census + numPr inspection."
+}

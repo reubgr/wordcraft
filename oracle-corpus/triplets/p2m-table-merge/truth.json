@@ -1,0 +1,9 @@
+{
+  "id": "p2m-table-merge",
+  "change_type": "table_cells_merged",
+  "description": "Revised merges the two first-row cells into one (gridSpan=2); the merged cell keeps both paragraphs ('alpha', 'beta'). All texts preserved.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Structural cell change. Score via cellIns/cellDel + tcPrChange (gridSpan) census."
+}

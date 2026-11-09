@@ -1,0 +1,18 @@
+{
+  "id": "p2m-longpara",
+  "change_type": "long_paragraph_word_change",
+  "description": "One paragraph of 2909 chars (> 2000, WordCraft's MAX_CHAR_DIFF) with one word changed mid-paragraph: 'budget' -> 'forecast' in sentence 15.",
+  "inserted_tokens": [
+    "forecast"
+  ],
+  "deleted_tokens": [
+    "budget"
+  ],
+  "substituted": [
+    {
+      "from": "budget",
+      "to": "forecast"
+    }
+  ],
+  "para_chars": 2909
+}

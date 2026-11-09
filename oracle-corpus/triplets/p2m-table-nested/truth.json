@@ -1,0 +1,17 @@
+{
+  "id": "p2m-table-nested",
+  "change_type": "nested_table_cell_edit",
+  "description": "One cell of a 2x2 table nested inside an outer table cell changes: 'inner-d' -> 'inner-revised'.",
+  "inserted_tokens": [
+    "inner-revised"
+  ],
+  "deleted_tokens": [
+    "inner-d"
+  ],
+  "substituted": [
+    {
+      "from": "inner-d",
+      "to": "inner-revised"
+    }
+  ]
+}

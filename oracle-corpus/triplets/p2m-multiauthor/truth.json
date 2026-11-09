@@ -1,0 +1,19 @@
+{
+  "id": "p2m-multiauthor",
+  "change_type": "multiauthor_two_step",
+  "description": "Revised was built in two steps: (1) a tracked insertion by 'First Author' adds the word 'extended' in paragraph 2; (2) a clean untracked edit changes 'draft' to 'final draft' in paragraph 3. Base is the pre-edit document.",
+  "inserted_tokens": [
+    "extended",
+    "final"
+  ],
+  "deleted_tokens": [],
+  "substituted": [],
+  "preexisting_revision": {
+    "kind": "ins",
+    "author": "First Author",
+    "tokens": [
+      "extended"
+    ]
+  },
+  "note": "Score whose names land where: author census of the outputs + fate of the pre-existing insertion. Word arm runs with IgnoreAllComparisonWarnings=true (= dialog Yes, per the speed spike)."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "p1-header-change",
+  "change_type": "header_text_change",
+  "description": "Header text changes ('CONFIDENTIAL' -> 'ATTORNEY WORK PRODUCT'); body is identical.",
+  "inserted_tokens": [
+    "ATTORNEY",
+    "WORK",
+    "PRODUCT"
+  ],
+  "deleted_tokens": [
+    "CONFIDENTIAL"
+  ],
+  "substituted": [],
+  "part": "word/header*.xml",
+  "note": "Revisions, if any, land in the header part of the result, not in document.xml."
+}

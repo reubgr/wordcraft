@@ -1,0 +1,9 @@
+{
+  "id": "p2m-para-merge",
+  "change_type": "paragraph_merge",
+  "description": "Two paragraphs merge into one; token stream identical, only the paragraph break is removed.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Token F1 vacuous; score via revision structure around the break."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "p2m-empty-both",
+  "change_type": "both_empty",
+  "description": "Both documents have empty bodies (identical).",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "No-difference control at the empty extreme; watch for RESULT_NONE / errors."
+}

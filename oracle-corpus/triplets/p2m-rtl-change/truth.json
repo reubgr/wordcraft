@@ -1,0 +1,17 @@
+{
+  "id": "p2m-rtl-change",
+  "change_type": "rtl_word_change",
+  "description": "An Arabic (RTL) sentence with one word changed: \u0627\u0644\u0643\u062a\u0627\u0628 (the book) -> \u0627\u0644\u0645\u062c\u0644\u0629 (the magazine).",
+  "inserted_tokens": [
+    "\u0627\u0644\u0645\u062c\u0644\u0629"
+  ],
+  "deleted_tokens": [
+    "\u0627\u0644\u0643\u062a\u0627\u0628"
+  ],
+  "substituted": [
+    {
+      "from": "\u0627\u0644\u0643\u062a\u0627\u0628",
+      "to": "\u0627\u0644\u0645\u062c\u0644\u0629"
+    }
+  ]
+}

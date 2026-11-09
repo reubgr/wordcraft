@@ -1,0 +1,4573 @@
+{
+  "corpus": "wordcraft-oracle-corpus (seed)",
+  "issue": "storytold/wordcraft#6045",
+  "generated_from": "wordcraft-compare-vs-word study corpora, Phases 0-4",
+  "entry_count": 68,
+  "entries": [
+    {
+      "id": "p0-del-para",
+      "source_phase": "phase0",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "63207b0ff13decb8a440aac08e45effb7211465308d1fa013a1bb0d70fe45424",
+          "bytes": 36745
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "f1e36c713683af858397104aad2f64f01aeae72f1ed28c9dd35bdcbefd500f63",
+          "bytes": 36692
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "5c7062010015aaf3ffd2f5343c3e8f360ced5826f8a358209b161dfa673e5163",
+          "bytes": 26599
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "6499325bfbe9076e1e90553ed6c6a049a10a505526c2ae7c8f6165eaad94e066",
+          "bytes": 975
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "phase",
+        "word": {
+          "route": "AppleScript compare verb, no optional parameters (path only)",
+          "toggles": "out-of-box defaults; dialog state captured before any compare: all 11 comparison-settings checkboxes ON",
+          "level": "Word level",
+          "destination": "New document",
+          "label": "blank (unset)"
+        },
+        "wordcraft": {
+          "command": "review.compare",
+          "author": "WordCraft Compare",
+          "showIn": "new",
+          "toggles": "not set explicitly (engine defaults)",
+          "build": "wordcraft-cli 0.15.0, HEAD ab0020d6"
+        },
+        "note": "Phase 0 predates the study's explicit settings-parity rule: the Word arm ran at captured out-of-box defaults rather than a set-and-verified vector. The vector above is the dialog state captured on that run, recorded in results/phase0-word-side.md and results/phase0-word.jsonl."
+      },
+      "truth_summary": {
+        "change_type": "delete_paragraph",
+        "description": "Middle paragraph of a 3-paragraph document deleted whole."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase0/p0-del-para",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p0-del-word",
+      "source_phase": "phase0",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "11b32ae88c5403a99fa66d2d1081e1e9b89292ab02b78a93890a880b32068078",
+          "bytes": 36647
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "2468e8968fe0a38896984a22e94975c45c2aff70b9b550ad195c771aab10b8af",
+          "bytes": 36643
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "ab70efef8e06381e28951b2ac8a0d46f2e797c3bb8d55ca99c4b4c1518f992e7",
+          "bytes": 26488
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "3f16da03ad116c9a9041fab272ac799e70f3a06d5fa1f3d9f71214f18065bd82",
+          "bytes": 509
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "phase",
+        "word": {
+          "route": "AppleScript compare verb, no optional parameters (path only)",
+          "toggles": "out-of-box defaults; dialog state captured before any compare: all 11 comparison-settings checkboxes ON",
+          "level": "Word level",
+          "destination": "New document",
+          "label": "blank (unset)"
+        },
+        "wordcraft": {
+          "command": "review.compare",
+          "author": "WordCraft Compare",
+          "showIn": "new",
+          "toggles": "not set explicitly (engine defaults)",
+          "build": "wordcraft-cli 0.15.0, HEAD ab0020d6"
+        },
+        "note": "Phase 0 predates the study's explicit settings-parity rule: the Word arm ran at captured out-of-box defaults rather than a set-and-verified vector. The vector above is the dialog state captured on that run, recorded in results/phase0-word-side.md and results/phase0-word.jsonl."
+      },
+      "truth_summary": {
+        "change_type": "delete_word",
+        "description": "Single-word deletion mid-sentence: 'revised' removed."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase0/p0-del-word",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p0-identical",
+      "source_phase": "phase0",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "e983ecda682e6430eb602157c009adb7eaf29017c44fd1691f1e5c80b758aa4b",
+          "bytes": 36680
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "e983ecda682e6430eb602157c009adb7eaf29017c44fd1691f1e5c80b758aa4b",
+          "bytes": 36680
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "9efd0f264df168333374a222ca3f6f69b5f39714ebb4a0cc08baa54aaff1756f",
+          "bytes": 26427
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "7b973cc9162335255596dff9a45ed419911d431f106e9de411ea933223b7647b",
+          "bytes": 644
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "phase",
+        "word": {
+          "route": "AppleScript compare verb, no optional parameters (path only)",
+          "toggles": "out-of-box defaults; dialog state captured before any compare: all 11 comparison-settings checkboxes ON",
+          "level": "Word level",
+          "destination": "New document",
+          "label": "blank (unset)"
+        },
+        "wordcraft": {
+          "command": "review.compare",
+          "author": "WordCraft Compare",
+          "showIn": "new",
+          "toggles": "not set explicitly (engine defaults)",
+          "build": "wordcraft-cli 0.15.0, HEAD ab0020d6"
+        },
+        "note": "Phase 0 predates the study's explicit settings-parity rule: the Word arm ran at captured out-of-box defaults rather than a set-and-verified vector. The vector above is the dialog state captured on that run, recorded in results/phase0-word-side.md and results/phase0-word.jsonl."
+      },
+      "truth_summary": {
+        "change_type": "identical_control",
+        "description": "Base and revised are identical; both systems must emit zero revisions."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase0/p0-identical",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p0-ins-para",
+      "source_phase": "phase0",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "e2d2b1d550bc5bbe656339098dfe19d8b4429bb3721815bf6ad02057915de6d7",
+          "bytes": 36751
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "fa4a486bcb45a4ae474e66671bf5c3579336b751be38e9a1049a6502a32d7073",
+          "bytes": 36796
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "96940db361e47a8d8ea05ccf5ff2abd8710e345dcc448a8e9584d2206f7cfef7",
+          "bytes": 26671
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "478478acd38283ce4e939682fff361da94cd3f45a56844ed089b45fadd5320b5",
+          "bytes": 1296
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "phase",
+        "word": {
+          "route": "AppleScript compare verb, no optional parameters (path only)",
+          "toggles": "out-of-box defaults; dialog state captured before any compare: all 11 comparison-settings checkboxes ON",
+          "level": "Word level",
+          "destination": "New document",
+          "label": "blank (unset)"
+        },
+        "wordcraft": {
+          "command": "review.compare",
+          "author": "WordCraft Compare",
+          "showIn": "new",
+          "toggles": "not set explicitly (engine defaults)",
+          "build": "wordcraft-cli 0.15.0, HEAD ab0020d6"
+        },
+        "note": "Phase 0 predates the study's explicit settings-parity rule: the Word arm ran at captured out-of-box defaults rather than a set-and-verified vector. The vector above is the dialog state captured on that run, recorded in results/phase0-word-side.md and results/phase0-word.jsonl."
+      },
+      "truth_summary": {
+        "change_type": "insert_paragraph",
+        "description": "One whole paragraph inserted as paragraph 2 of a 3-paragraph document (revised document has 4 paragraphs)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase0/p0-ins-para",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p0-ins-sentence",
+      "source_phase": "phase0",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "f618646b4a645b83a297e79c973b987aa5c496045b71d0894bf11f4d31e53ac6",
+          "bytes": 36637
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "604a9868fed0ce2b470d9fc9b55e5a22ff53234b239778ea61db8632bb44a83d",
+          "bytes": 36661
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "0cdce8d5284c16f61e60a5ff62f4695d9b5eb6419697f813755181920c55015c",
+          "bytes": 26476
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "946098d4e7e3224e4dcc639b58b1923522af99cfaee37f8d268cb8d8642513fb",
+          "bytes": 644
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "phase",
+        "word": {
+          "route": "AppleScript compare verb, no optional parameters (path only)",
+          "toggles": "out-of-box defaults; dialog state captured before any compare: all 11 comparison-settings checkboxes ON",
+          "level": "Word level",
+          "destination": "New document",
+          "label": "blank (unset)"
+        },
+        "wordcraft": {
+          "command": "review.compare",
+          "author": "WordCraft Compare",
+          "showIn": "new",
+          "toggles": "not set explicitly (engine defaults)",
+          "build": "wordcraft-cli 0.15.0, HEAD ab0020d6"
+        },
+        "note": "Phase 0 predates the study's explicit settings-parity rule: the Word arm ran at captured out-of-box defaults rather than a set-and-verified vector. The vector above is the dialog state captured on that run, recorded in results/phase0-word-side.md and results/phase0-word.jsonl."
+      },
+      "truth_summary": {
+        "change_type": "insert_sentence",
+        "description": "One sentence appended to a two-sentence paragraph."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase0/p0-ins-sentence",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p0-ins-word",
+      "source_phase": "phase0",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "13e80e874ba6fb9e8d870f427db1e0c8b7bec425d7401a5a5038d225693e94ae",
+          "bytes": 36647
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "60a0e9daf1e9709110a94bd30ef31215a9a121e338298161fe57c156970fc2da",
+          "bytes": 36654
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "3ec99f9777fd94f08b28ff7f6d7ccfbb44f3b368ea29c9cc15d2e4948eaacfde",
+          "bytes": 26476
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "34e88f198b968616dcc0ea080e90b1bed9363df31fa1bb7499995ecc5bc9ecbb",
+          "bytes": 530
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "phase",
+        "word": {
+          "route": "AppleScript compare verb, no optional parameters (path only)",
+          "toggles": "out-of-box defaults; dialog state captured before any compare: all 11 comparison-settings checkboxes ON",
+          "level": "Word level",
+          "destination": "New document",
+          "label": "blank (unset)"
+        },
+        "wordcraft": {
+          "command": "review.compare",
+          "author": "WordCraft Compare",
+          "showIn": "new",
+          "toggles": "not set explicitly (engine defaults)",
+          "build": "wordcraft-cli 0.15.0, HEAD ab0020d6"
+        },
+        "note": "Phase 0 predates the study's explicit settings-parity rule: the Word arm ran at captured out-of-box defaults rather than a set-and-verified vector. The vector above is the dialog state captured on that run, recorded in results/phase0-word-side.md and results/phase0-word.jsonl."
+      },
+      "truth_summary": {
+        "change_type": "insert_word",
+        "description": "Single-word insertion mid-sentence: 'carefully' added."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase0/p0-ins-word",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p0-sub-word",
+      "source_phase": "phase0",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "13e80e874ba6fb9e8d870f427db1e0c8b7bec425d7401a5a5038d225693e94ae",
+          "bytes": 36647
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "384f223cd4591524ef83740f8e4a450f1c2b3b52889872d6fc31f049883b89df",
+          "bytes": 36648
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "7468a8e926c0190f4040e6beb4f03daa5fde252e455a9ae64297f636c9f57c9e",
+          "bytes": 26480
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "6a9a8caa4c160569a21d18cda778350090449ff5c9bcfebae68a5d2a1df4ef43",
+          "bytes": 597
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "phase",
+        "word": {
+          "route": "AppleScript compare verb, no optional parameters (path only)",
+          "toggles": "out-of-box defaults; dialog state captured before any compare: all 11 comparison-settings checkboxes ON",
+          "level": "Word level",
+          "destination": "New document",
+          "label": "blank (unset)"
+        },
+        "wordcraft": {
+          "command": "review.compare",
+          "author": "WordCraft Compare",
+          "showIn": "new",
+          "toggles": "not set explicitly (engine defaults)",
+          "build": "wordcraft-cli 0.15.0, HEAD ab0020d6"
+        },
+        "note": "Phase 0 predates the study's explicit settings-parity rule: the Word arm ran at captured out-of-box defaults rather than a set-and-verified vector. The vector above is the dialog state captured on that run, recorded in results/phase0-word-side.md and results/phase0-word.jsonl."
+      },
+      "truth_summary": {
+        "change_type": "substitute_word",
+        "description": "Single-word substitution mid-sentence: 'draft' -> 'final'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase0/p0-sub-word",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p1-case-only",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "1669e5697f11700c4f52caf149d133118e5685d1fa674e2d536761ef5ce4022c",
+          "bytes": 36616
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "9ac799869cf0005468cf8d22ed9a09d9f0e1d813ce5c19480ca90fbbc39585f5",
+          "bytes": 36616
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "521cf8c0f2fe7ca1c9200b3c046a3cb4c2dbe23ebd8395766c041253d7590617",
+          "bytes": 26460
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "0999816cfa3dd5b9ace00125aba52ade939e00c1e4a1850c3ffdd13f19a18a49",
+          "bytes": 295
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "Compare Study",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "case_only",
+        "description": "Single word differs only in letter case: 'Draft' -> 'draft'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-case-only",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-comment-added",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "6135ec04ebd51514554ff85a32921ab3946c4704c505bc3dceffccdcbe62424b",
+          "bytes": 36647
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "a2840418e908a3e583d9faefc0fd2a2a75e2baa22941b8f3cc968a020e91a858",
+          "bytes": 37099
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "56ba748c0bb50a875ea51d7f5f63952cfc47049cc5c5ff8da0b514486c8c7b46",
+          "bytes": 29069
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "180d18754029ca36c31ea0a82a3196a00fc89b6182f0961cd60c4b2ecae1e7b5",
+          "bytes": 421
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "comment_added",
+        "description": "Revised adds a comment anchored on the word 'draft' (text: 'Please verify this figure.'); the body text is identical in both documents."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-comment-added",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-field-pair",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "a5d6622a605732b7dbf3df890d1ff1d1d0bb8ecc1a48238bc6dc31bb4c5bf926",
+          "bytes": 36651
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "245e7c7f83d2217292b6ee86e946ac39af034a251f3bb37a82e467dae5a946b4",
+          "bytes": 36624
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "62fd23c056d81528a6f5bf2e2893606dc0b49599b93334977d10c7dd90e597b4",
+          "bytes": 26531
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "0a59ecde3d5af7e757029fa05143eb5fbb82ce46cbf5374ed55d5f22f732caff",
+          "bytes": 441
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "Compare Study",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "field_removed_same_text",
+        "description": "Base carries a DATE field whose cached result is '8 November 2026'; revised carries the identical visible text as plain literal runs (no field). Visible token stream is identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-field-pair",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-footnote-change",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "6d654ed8865079d3a2d4dc9eccb4c13171b4e2b18ea6e39ed60810cecf6c3020",
+          "bytes": 37005
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "23aff75505039a881a1fd97f4f4b6a2216dde1d37199868883c74bbbd1b74696",
+          "bytes": 37009
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "7674df640d021ce582fa16ddb836e26fc2d7a7385e35f97b153ce9ce4f030faa",
+          "bytes": 29846
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "006bc703e8168dd05a0ae290215924ac96eb214aeb34b10e58040318b821ba1a",
+          "bytes": 370
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "footnote_text_change",
+        "description": "Footnote text gains one word ('revised'); body text is identical in both documents."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-footnote-change",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-formatting-only",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "fb4cd867977ec809a0855ddf61497f699c77db0bdbcdea10747d6d5fa64f8731",
+          "bytes": 36653
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "eaaf3432af75b45ef5bf7b7f9abcea0a7ae10a847e76c0f57ffeaedc9af5247e",
+          "bytes": 36643
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "3cd4f64dd3275330a11fc7a3240a2978b0f743b984a50c2b5b4fc9f692dd2280",
+          "bytes": 26455
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "fa3d2ab9aab216fcead6fb10b98174bad279299b53a875eea389fc8d228be287",
+          "bytes": 345
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "Compare Study",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "formatting_only",
+        "description": "The word 'draft' is bolded in the revised document; the text is identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-formatting-only",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-header-change",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "8be32573d076407e803ecb61c7938622dcbde379a7431a602f1b806c05a78a1e",
+          "bytes": 37212
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "971af1613093ea09cd55b78d8a62d144056861d2b74165dd0ad8fcf2d494ae2b",
+          "bytes": 37224
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "6bc2168be96b822e8833bdec75074723f24d88d5e56f9ce595e96fe0d1370c83",
+          "bytes": 29864
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "369d6bd81d16c2e86ab1f27e991582af559d472fb25cb5f9dd4bad22b615ca32",
+          "bytes": 432
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "Compare Study",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "header_text_change",
+        "description": "Header text changes ('CONFIDENTIAL' -> 'ATTORNEY WORK PRODUCT'); body is identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-header-change",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-move-para",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "b8daecd7dfbeab918ea707760a5a6906758d3aef72a2209afd9d3dc63ac70fc6",
+          "bytes": 36751
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d05f6810f8fcbe56610cc7013da0b02d54523687ee541ec75ca300c23547f90a",
+          "bytes": 36750
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "d6f4dfef1599dc8d68552b7cbcbe945eaff6fed7b03c29e95f017909a9ec63a0",
+          "bytes": 26714
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "77e7039e9854c65d6caa867b79301fb938563317ab2c5bfbaf18389e1a42d60d",
+          "bytes": 645
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "Compare Study",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "paragraph_reorder",
+        "description": "Paragraphs 2 and 3 swap places (B moves after C); the token multiset is identical, only order changes."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-move-para",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-table-cell",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "1d8075720a26eac3f0ad3ea611419a7429c1c7c23367e7892b1140a74dc616df",
+          "bytes": 36755
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "a245c95161455029e1c1e8ca8402cdec9b3820bf46f30da3dfdaba775e68b478",
+          "bytes": 36755
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "9f752b4f65fa3e3626bd13d0153dfd57f596fddd6dbb4cf974bb81aa78dfe5dd",
+          "bytes": 26683
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "955a9a056ec68884601f4d1c0edebc78038e4f79ef31b8e90ccd58a532410f6e",
+          "bytes": 333
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "Compare Study",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "table_cell_edit",
+        "description": "One table cell's text changes: 'alpha' -> 'omega' in a 2x2 table; body paragraph identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-table-cell",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-textbox-change",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "d8f96b248dc9e058f511d67c1ab3a9575a027e239b2c270db0a96e733c0fdb73",
+          "bytes": 36885
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "701c40966b81f2d2f5a2cecbc8a37550ee2ec2f9dd1590b098cc192c8686cc47",
+          "bytes": 36887
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "22cdfc713e85482073b6bd46d07e1d7a8444bf864b850e124f7f955b782ff926",
+          "bytes": 26815
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "c8b88eb9074704905ebab88d183d66157137963114394ac43802bf73e9bfb47f",
+          "bytes": 504
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "textbox_text_change",
+        "description": "A VML text box's text changes ('Draft label' -> 'Final label'); the body paragraph is identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-textbox-change",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p1-whitespace-only",
+      "source_phase": "phase1",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "9aa60cdde19a1ba4eb07c341055a0e695d52df204c5d03f3462c4d85a9356758",
+          "bytes": 36647
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "56529153cd03975739a02f29b836f3c98f1405837c5da8efd0fb2c9d0daa62b9",
+          "bytes": 36649
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "db15c7c1d72530dfd23e1f0b68993ff0c5ca246e9ac6cb5b4b844ec68da69a43",
+          "bytes": 26500
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "87a18ef2048c3851e95e39b785b6ece92774f5717514b8a3ebcda40a065ec3e7",
+          "bytes": 349
+        }
+      },
+      "word_build": "Word for Mac 16.114.4 (26110224)",
+      "wordcraft_head": null,
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Comments": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "level": "Word level",
+          "destination": "New document",
+          "label": "Compare Study",
+          "route": "Compare dialog (AX), state set + verified pre-run, reset + verified post-run"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "whitespace_only",
+        "description": "Single double-space replaces a single space mid-sentence; token stream is identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase1/p1-whitespace-only",
+        "word_compare_source_file": "word-base.docx"
+      },
+      "notes": "Baseline-arm Word output (word-base.docx in the study corpus); word-base-opt*.docx / word-base-oldtimed.docx in the same directory are later harness re-runs and were not used."
+    },
+    {
+      "id": "p2m-cjk-change",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "26d85b585043a3d7e63705b7ef717bac261fa7c3370554ce043fc1fc79527e27",
+          "bytes": 36659
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "1bca1b39f9376dd678dc6e30581c0484ffec8493e18743ec2dfcef94efdae06d",
+          "bytes": 36657
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "0b030d4c877c986f82d18e4b774743be0c6420c27df84ead5e22ae207aeb4567",
+          "bytes": 26475
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "27314edf575eff9f4b14afa23c50c90e5c0eaec41c56514751bfaf60b1ce6189",
+          "bytes": 408
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "cjk_single_char_change",
+        "description": "A CJK paragraph (no spaces) with exactly one character changed: \u8d28 -> \u6570 near the end."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-cjk-change",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-combining-change",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "b8f4caa7a1277de120d0b88cc9a9777d0e7ebd24bdb905c68b6fbef221c780af",
+          "bytes": 36605
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "7dc3339ec92333d4156a33cd4adf1b0b84362e520ba2006a393841b4082e5f93",
+          "bytes": 36605
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "611ea4e446c68d0550a1f7a76f7cdd1303fbae6b131de3710d8e5877b886db23",
+          "bytes": 26440
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "ad2290bf76bc2fd870eae33b7f3ccaa1eb2405ffeb26ea0ddabbadf0eaf5ccfa",
+          "bytes": 455
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "combining_sequence_change",
+        "description": "Visible text identical; 'caf\u00e9' is precomposed (U+00E9) in base and decomposed (e + U+0301) in revised. Canonically equivalent, codepoint-different."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-combining-change",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-empty-both",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "cbacad2f7ebac197e7e4c05a45a2063c499fd9230b68a6f56d9e64163fc53aa9",
+          "bytes": 36563
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "cbacad2f7ebac197e7e4c05a45a2063c499fd9230b68a6f56d9e64163fc53aa9",
+          "bytes": 36563
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "f41cd269977ccbdc4d469d8836402a9bb37aebb12c4243fedba26ba5cf231418",
+          "bytes": 26255
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "586057be0903634d1b2677f6fe917ad0bed0947950423cc6a84c96ac120f15ef",
+          "bytes": 284
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "both_empty",
+        "description": "Both documents have empty bodies (identical)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-empty-both",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-empty-del",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "9f216b51fddfdcecb5e4275f126dd78cc947b76609e1ee4b05d279f3c789c06e",
+          "bytes": 36608
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "cbacad2f7ebac197e7e4c05a45a2063c499fd9230b68a6f56d9e64163fc53aa9",
+          "bytes": 36563
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "fcfc679b1133bd01ac446737a87d18c04755f424e427c7109a1d3018242f5c76",
+          "bytes": 26386
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "b805f3e0812a43e29693187c9d5f9aab301bb7456595ddc56dc95c03d604d4ad",
+          "bytes": 331
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "one_paragraph_to_empty",
+        "description": "Base has one paragraph; revised has an empty body (no paragraphs)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-empty-del",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-empty-ins",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "cbacad2f7ebac197e7e4c05a45a2063c499fd9230b68a6f56d9e64163fc53aa9",
+          "bytes": 36563
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "9f216b51fddfdcecb5e4275f126dd78cc947b76609e1ee4b05d279f3c789c06e",
+          "bytes": 36608
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "867d15ad79365fe108fb87d8767760c5f08da189987e9c3a22ef5309964a1628",
+          "bytes": 26393
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "ece8cbc817e9c96fedff6c30528b55a8042bba573b2943e647aba1c7a51e791e",
+          "bytes": 331
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "empty_to_one_paragraph",
+        "description": "Base has an empty body (no paragraphs); revised has one paragraph."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-empty-ins",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-endnote-change",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "ce4113f1992f3f75665e9f3254c51683011d4aa045adb15d0338cfbb5611b5d4",
+          "bytes": 36999
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "2cfb958f2bb788be6a6020dea2af5a3f84c211a2f72e4a9a0334b7bcd8937a40",
+          "bytes": 37004
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "f9045a30704cbd1504594d8666a3d7a4258769b129f69a548c4911e733271b57",
+          "bytes": 29820
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "8ef80f7c58d4662af3196c391434613ae5559c92b3b22a8bc192ec7547bfcf27",
+          "bytes": 362
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "endnote_text_change",
+        "description": "Endnote text gains one word ('revised'); body text identical in both documents."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-endnote-change",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-equation-change",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "7650145e9cda33985682d408683c880b32e3a005532d4584521f3c9c7c31b0a6",
+          "bytes": 36652
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "16f6873cf62f5dfbfc5bfd3c1dc4a03681d31e30019c5570a32a2d5ce6b4da05",
+          "bytes": 36652
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "01583f16b0ef095f1bf2b96f781b1391a8e3c9f3681d851442442d078005dfe5",
+          "bytes": 26483
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "efd0d9113697267a47a00707182f1eca641e9dc61161a11b0d02fbf91fec394e",
+          "bytes": 412
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "equation_term_change",
+        "description": "An OMML equation's last term changes: x + y -> x + z; surrounding text identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-equation-change",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-image-replace",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "f326b61bf326656ba3803154503d4fc34fe6040cd305a2b8244f5330967be699",
+          "bytes": 37173
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "c3fb676de01ae447da2b03ef6e894137ea6d41732e5c86b1b70721453f690913",
+          "bytes": 37173
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "b422442cacb7adfa7c8ce241d0bd9145491a1e425603b26bbd9eab8db67a188c",
+          "bytes": 27505
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "c9aac8b31f10e42c4f595918867cafa8d4dc8fbeb2ed1887040ad4e0af1b3cbd",
+          "bytes": 411
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "image_replaced",
+        "description": "The inline image is replaced by a different image (red -> blue PNG) at the same pixel size and the same display size (1in wide); surrounding text identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-image-replace",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-image-resize",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "f326b61bf326656ba3803154503d4fc34fe6040cd305a2b8244f5330967be699",
+          "bytes": 37173
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "2e33fcb6f5c14aa66ef5b1ea3d92d5db2587c69fc32b1823a36fea245dcc39b5",
+          "bytes": 37172
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "e1f4e4a380468e8ccf869d9937bce23b637563f5f7c9a3041fb298bfa94d5b8d",
+          "bytes": 27200
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "cc08024db87fa0f1c65d5fff1571ac8b101bd0dcc82b2f9cfc95d0e5a501b792",
+          "bytes": 368
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "image_resized",
+        "description": "The same image (identical bytes) is displayed at 1.5in wide instead of 1.0in; text identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-image-resize",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-list-convert",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "ec7be56544fa7388addd642da9cc499a26a9cf66416e35e6d3e43bd0e0ec82b1",
+          "bytes": 36709
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "bcc146eb1b5fc8d726eadd9a4da79f427e2925927bda159d03ba0996c5c0aa91",
+          "bytes": 36709
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "8dde3c26e74d7839f0ffd25d15acea743dc7f39db56c2eb6e77d29fc76b5da45",
+          "bytes": 27099
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "60973f2e303ee84bb8bb74c77dff9f1125bd5df9f05a9a0774201e6b4eb7b75a",
+          "bytes": 317
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "bullet_to_numbered",
+        "description": "Identical items; base list is bulleted, revised list is numbered (different abstractNum / numFmt)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-list-convert",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-list-insert",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "1a4f7654591383531c3053387163bac31bef2bc47b636f0b05af67a47c28bf54",
+          "bytes": 36680
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "323e5a77cfd705a4bdd9f2452ae3aacd7662d5d53b1a7d01987d449d63991453",
+          "bytes": 36691
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "7d7d6b895af48f861aafa2e55ac9a0f08f3366ea73285783e0f0efc759b2dd29",
+          "bytes": 26884
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "69feac8ea0a4c398e5f969e9043ec11088e02ce88980f5931650d84638536686",
+          "bytes": 402
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "numbered_list_item_inserted",
+        "description": "Numbered list gains one item ('Inserted') between Beta and Gamma; following items renumber (3->4, 4->5 in display)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-list-insert",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-list-restart",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "bcc180af8d3e17bf213397ba32bc073275ef99557e77c0139d75ce22df336ee2",
+          "bytes": 36706
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "0d3eef991334cc8d194105dd2b6daa1ece5cc99b0d08e07b35236ee14fca4ccb",
+          "bytes": 36710
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "c31b8839c3b069e43c4334455d769332b2627b555ea8b1782a842120b603c49c",
+          "bytes": 26899
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "f61887f2cacd3daa5cc44c0ac9acd4da81a772cffee7c13c2f628b3c9c286928",
+          "bytes": 411
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "numbering_restart",
+        "description": "Identical list text; in revised, Gamma/Delta sit in a new numbering instance with startOverride=1, so Gamma displays as 1 instead of 3."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-list-restart",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-longpara",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "24b8675001368897eed3a6d8632fe41781a014f7cf7b008c18357eab72950ed0",
+          "bytes": 36746
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "bbac12ef1214d5947761e618470a241513fb6463aa5b3f266d9bb56c9777f6f1",
+          "bytes": 36753
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "0af90f5bdf82dfe7aa5011a7c2d8119d0a0302d54d496de1dae00a03493d9e79",
+          "bytes": 26604
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "a42883118fb2395baba19a08057449244dd8d37d48a9ab552f09d77ec8727955",
+          "bytes": 421
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "long_paragraph_word_change",
+        "description": "One paragraph of 2909 chars (> 2000, WordCraft's MAX_CHAR_DIFF) with one word changed mid-paragraph: 'budget' -> 'forecast' in sentence 15."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-longpara",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-manyblocks",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "c9402e5cada85ec32240aef765903c15248cffd471ae192c77d938a431c91305",
+          "bytes": 49550
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "f0bf189f3af28511fc8e0f9c47685c9e30af7db041ca5a844f648c5df1d1b912",
+          "bytes": 49561
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "dc900d7b781599fa171fbcd3ec7c5717b735c0bf413e07f2e5bc94901e508f90",
+          "bytes": 68091
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "49072bac386384f68465b47d139b145a6b76d094fd17b241b88f19b1d156477d",
+          "bytes": 430
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "many_blocks_one_change",
+        "description": "4500 paragraphs (> 4000, WordCraft's MAX_LCS per side); exactly one word changes in paragraph 2249: 'nominal' -> 'flagged'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-manyblocks",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-multiauthor",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "8db7055ffebafcbb4b68b393d34a847f4630a1c685b630f9a7d003cb9e7f0a92",
+          "bytes": 36679
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d8b4b7b16497a41959317c7a6e8270750dd1e0b15e8bf77f5cf94a62925fc424",
+          "bytes": 36770
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "5f5667112bd8237c1854ee57051fc8a18caf464477e701b2cad4860094416a90",
+          "bytes": 26570
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "007527807f2a7b767dcdc0af8733da0e9a7899c3987cb8f7e2402d187be8e092",
+          "bytes": 733
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 1
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "multiauthor_two_step",
+        "description": "Revised was built in two steps: (1) a tracked insertion by 'First Author' adds the word 'extended' in paragraph 2; (2) a clean untracked edit changes 'draft' to 'final draft' in paragraph 3. Base is the pre-edit document."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-multiauthor",
+        "word_compare_source_file": "word-dlg.docx"
+      },
+      "notes": "The word.docx in the study corpus directory is a copyback placeholder, NOT a Word output (the VBA arm fails deterministically on this pair). The genuine Word oracle is word-dlg.docx, produced by the Phase 3 dialog-arm repair run at the baseline settings vector; it is used here as word-compare.docx."
+    },
+    {
+      "id": "p2m-para-merge",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "c5c50f5b852c777dbf64af10878dd3719b66763e2417e02b54515d6651ccbf13",
+          "bytes": 36604
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "1ca09c50342e2137abd665bc4ec3612e13bc1ca82821e187f60da5fed3187e6e",
+          "bytes": 36603
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "5a867fdb63300e2ff36de76429837a53bebc31554b727f9f0ffd4165a8f2cd60",
+          "bytes": 26438
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "858167976fe6c47a6949c3d3314454f5715f1acfa667f8bcf2d2028fa37d05b3",
+          "bytes": 324
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "paragraph_merge",
+        "description": "Two paragraphs merge into one; token stream identical, only the paragraph break is removed."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-para-merge",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-para-split",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "1ca09c50342e2137abd665bc4ec3612e13bc1ca82821e187f60da5fed3187e6e",
+          "bytes": 36603
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "c5c50f5b852c777dbf64af10878dd3719b66763e2417e02b54515d6651ccbf13",
+          "bytes": 36604
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "87adc6ab76591c7606ff5da1ea0c00ed16110b05f7968a7ad46aaf5924a9685c",
+          "bytes": 26443
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "d15da40615692fd49ce1c2ca75498e4cc1eb3c76fd2aff73255bdc014b5f8c92",
+          "bytes": 345
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "paragraph_split",
+        "description": "One paragraph splits into two at the sentence boundary; token stream identical, only the paragraph break is new."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-para-split",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-rtl-change",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "68acebc177948a2d57bb3492834a798ff85d8ed2f3f82d42cb7eca3a004b07e2",
+          "bytes": 36659
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "017750c2f484f04930dc3e0e8ba61669c10a96c61bba3bb71f7a38b13176e62f",
+          "bytes": 36660
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "d7b7e96ef5e2aec492e28894dfbaab2c0867b10426a6824f5c01eca75e43e5d7",
+          "bytes": 26498
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "a0dacd12bff93d4276103d342442382f986bff1d5c0f58086bf6a06fdfece365",
+          "bytes": 518
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "rtl_word_change",
+        "description": "An Arabic (RTL) sentence with one word changed: \u0627\u0644\u0643\u062a\u0627\u0628 (the book) -> \u0627\u0644\u0645\u062c\u0644\u0629 (the magazine)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-rtl-change",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-section-header2",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "cb6a81b378bb3f90d66ec194a50a050b056afd3d7ed9bbc2e3a1b045c19a98ad",
+          "bytes": 37184
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d31ac954393ed2d3dc9009fe1ddae51d26087f007d64d63041b9718e82b68800",
+          "bytes": 37186
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "318b67600544962be7cf686cfc53ad495b739743b176e59bc2be2b508f50ee31",
+          "bytes": 30636
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "a74df50eb7a02729fe756dc15ceb26e6e6009b08b8824a358b48f3f2791b982f",
+          "bytes": 513
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "second_section_header_change",
+        "description": "Two-section document; only the SECOND section's header text changes ('Base' -> 'Revised'). Bodies identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-section-header2",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-section-margins",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "44b21228911d0d86612076f7aa084fca5f779c74953f9fac92bc2c130443b403",
+          "bytes": 36674
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "3e0e5cf19d59ed480caee32503cd34cdea3a0639ee9ea1e54cdfe9c048c1e361",
+          "bytes": 36675
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "6a687ad5a2df93f0d8ec88667293b85528705d8fb26ee9b3ee74f7a98700b010",
+          "bytes": 26480
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "a5403b1bb2b1bc4bd3b8d77f3cc08790cf684570317c44d47def8e03604ae6f7",
+          "bytes": 356
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "section_margin_change",
+        "description": "Identical body text; section margins change (top/bottom 1in -> 2in, left/right 1in -> 1.5in)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-section-margins",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-section-orient",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "f2e5ffc4795147285bdb3247ec1e02b8de43a1b3d46e91702ed6cd1f4304ac73",
+          "bytes": 36647
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "dbe43ac8e6d9023a58e16a4ab8bbb53fe63a8edfb6e063b37aa0e541991c4755",
+          "bytes": 36659
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "2a38f46b06c3ce2b68775f4f90273b8dbafca017cbbdcf2360c6cf68de139144",
+          "bytes": 26446
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "ec344d3af9440888909fc5341aeb434aaee89c50fc853e9962bcfdb40f3d02d9",
+          "bytes": 362
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "section_orientation_change",
+        "description": "Identical body text; the section turns from portrait to landscape (pgSz w/h swap + orient flag)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-section-orient",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-style-para",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "07d03e9b4b667c28981d926646e6baf9a3e21a714fb81926685ff36e92f20f31",
+          "bytes": 36695
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d36c428dcc2fa02433a598b964b1878f1ff6b21ee97f839d7299c4457460c016",
+          "bytes": 36696
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "b796ecc5f29930607b9d7f408efe0f0788bb723759317848296d9d370e1d976a",
+          "bytes": 26472
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "74233b6b16093c2355cad7616d2b12f2428e8904c1e5f2f1cf2782188ecb67a9",
+          "bytes": 351
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "paragraph_style_change",
+        "description": "Heading paragraph's style changes Heading 1 -> Heading 2; every text node identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-style-para",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-style-run",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "3a1c5889a4de94d0003344bec203efe6098411b93f0f5f6dd8a4b62c72fc7069",
+          "bytes": 36637
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "095e7980afa82a3f5abb7fa9e6626294cf3ac3380abd3244c7e46e525a135842",
+          "bytes": 36664
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "65c20f3e9107e5691668cc7699d4300b8ac670e01d83ab4a4591cebb2c729f83",
+          "bytes": 26433
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "fabcb8803a5ba0aedd44f5350dbeea94a97c944ea58abe287e6828b097468280",
+          "bytes": 315
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "run_style_change",
+        "description": "The word 'approved' gains the Emphasis character style in revised; text identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-style-run",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-table-colwidth",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "917df0815624ecd6bbbd5c5a211ded72026d7ae5459f61eb4b4462c8cdeb9303",
+          "bytes": 36766
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "4590ab1d00afaff02223130a814429f3f4e16a263632fce72add4d1a55c75afe",
+          "bytes": 36771
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "94e85d8509a5ed40f2f9f2483e2c2906e495dcc34deb5e15301dd0476889d3c8",
+          "bytes": 26745
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "3c0cb933943590a21e4a997d79d3bb22936c5be090dce91b5eca3eb10de2a392",
+          "bytes": 340
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "table_column_width_change",
+        "description": "Cell texts identical; column widths change from 2in/2in to 1in/3in (gridCol + tcW)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-table-colwidth",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-table-merge",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "44af22afbf1005669908fe1b3535c0099bc516a0a4d2920a895742bd68072de3",
+          "bytes": 36755
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d538b4446cf478d17539c85124eac2a0eda36410cb7619f46cbc05a924aa8b07",
+          "bytes": 36770
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "f20ffb073c1a80bac2bd08465ba2099ad12b1a99c13bd7ad19abfe81e0acf241",
+          "bytes": 26895
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "b5f3f782e9c722335caa5a6fe2edf9ef78e4488af463b8de99be4773613c8016",
+          "bytes": 393
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "table_cells_merged",
+        "description": "Revised merges the two first-row cells into one (gridSpan=2); the merged cell keeps both paragraphs ('alpha', 'beta'). All texts preserved."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-table-merge",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-table-nested",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "73dd7ccfb39afd85abe1cfc3f0e692239d6ccf84b52acc1d8daeaa6637b7b1ae",
+          "bytes": 36815
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "cfa7944e382caae5412605c08955608569316c069c2b6d3ca2a55da2a0279120",
+          "bytes": 36819
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "d445ab9615f71e4a45d072129ce9765f0009b6c01965e38b58a63b481b40687b",
+          "bytes": 26801
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "7bb5848265da46f4d23464bab2ad626fad6e1dfc50f8b2e9cd60424f852ba167",
+          "bytes": 368
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "nested_table_cell_edit",
+        "description": "One cell of a 2x2 table nested inside an outer table cell changes: 'inner-d' -> 'inner-revised'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-table-nested",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-table-row-del",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "818df67e957f5621c18791078a7d8e1cf38564b54a960b1f4c6c58b21e1544fb",
+          "bytes": 36773
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "44af22afbf1005669908fe1b3535c0099bc516a0a4d2920a895742bd68072de3",
+          "bytes": 36755
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "50a0d2a69dc84efc89bbed6af1225ce7d600bf98739d5bf2072763debe3b6fad",
+          "bytes": 26767
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "72fc86a15a4eb424353e9ff48c4ffa0a5d2d77b4c26120f8db0aba5c50dbf034",
+          "bytes": 281
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "table_row_deleted",
+        "description": "The middle row [middle-one, middle-two] is deleted; all other cell texts identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-table-row-del",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-table-row-ins",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "44af22afbf1005669908fe1b3535c0099bc516a0a4d2920a895742bd68072de3",
+          "bytes": 36755
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "749c8c8902942b6680b328c6b796dd65b12b32638648bfc567fb9a42f15398e2",
+          "bytes": 36775
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "848e16bee775c6a84621e64ad878b4ed50cafbc72b2c6324c99e163b96dbca18",
+          "bytes": 26749
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "c0286b41a71c1e9cc40a79406e477892a66a57548dd3721048e6a46999a252ba",
+          "bytes": 312
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "table_row_inserted",
+        "description": "A new row [inserted-one, inserted-two] appears between the two existing rows; all other cell texts identical."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-table-row-ins",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2m-table-rowswap",
+      "source_phase": "phase2-matrix",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "d0910c26e42dba357ad97308a32b9143542490775284671536c3dafb9c8f51d1",
+          "bytes": 36766
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "15d0b78a2265866b173eadfd4964d0339a229a5d4010d68b7468b8875cfbeb54",
+          "bytes": 36765
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "c4e68a7ae1ddb115277a74867e35ff8692e4ab195cd3470ac6a3dbad5c90e03f",
+          "bytes": 26821
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "7ea4cd24b14165d452f6d8e105fcbecf9028c7b512db5dddedc79fe1d3185059",
+          "bytes": 352
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": 0
+        },
+        "wordcraft": {
+          "system": "wc",
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new"
+        }
+      },
+      "truth_summary": {
+        "change_type": "table_row_reorder",
+        "description": "Rows 2 and 3 swap places; every cell text is unchanged, only row order changes."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-matrix/p2m-table-rowswap",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2-base-del",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "3abb1d7ff25a4481d1298e8f2691efaf8086a25d1381677ebe7017bfb05f98d2",
+          "bytes": 36818
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "60762a3c20f6caddf8ce1d852a07ac8a17a9d658d9f5aaa95b7f032460034082",
+          "bytes": 36724
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "d938f33600ba5dcf35370ae7d4010df95a728e0458c0e53675473c9e6a4139de",
+          "bytes": 26517
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "8af2ade98b6f11e6bbc2860c6eaef8e801ea573de145a2dd985e0af38d97b116",
+          "bytes": 3844
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "tracked_deletion_base_only",
+        "description": "Base's middle paragraph carries a Prior Author tracked deletion ('draft'); revised is the deletion's accepted state as plain text. Accept-resolved texts are IDENTICAL."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-base-del",
+        "word_compare_source_file": "word-diag-verb.docx"
+      },
+      "notes": "Word's dialog route produced no result document for this pair (RESULT_NONE: the tracked-changes prompt's Yes semantics make the accept-resolved inputs identical). The study's measured Word output is the verb-route equivalent, word-diag-verb.docx (Word compare verb, warnings ignored = prompt Yes, baseline settings vector); it is used here as word-compare.docx."
+    },
+    {
+      "id": "p2-base-fmt",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "11bb844d71a80eedbe9a89268b454c76f6e4700ea52d45af54cf5f045ef5182b",
+          "bytes": 36855
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "da5eff857693ceebdecb456fba6c5842f81958be7f35fd4c1a4972cb75dff146",
+          "bytes": 36787
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "b2e0594e6232ea83e030a2b719ef7f40588d7a125dee72e9479e141e0400c250",
+          "bytes": 26554
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "75b6b813613fbd8fa6eb3b16db26e087b031fdca8f7e4b8127b9f1de52fee04d",
+          "bytes": 4219
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "formatting_change_base_only",
+        "description": "Base's middle paragraph is centred with 'audit' bold, both changes pending as Prior Author property-change records (pPrChange + rPrChange); revised has the same visible formatting as plain formatting, no records. Texts and visible formatting are IDENTICAL."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-base-fmt",
+        "word_compare_source_file": "word-diag-verb.docx"
+      },
+      "notes": "Word's dialog route produced no result document for this pair (RESULT_NONE: the tracked-changes prompt's Yes semantics make the accept-resolved inputs identical). The study's measured Word output is the verb-route equivalent, word-diag-verb.docx (Word compare verb, warnings ignored = prompt Yes, baseline settings vector); it is used here as word-compare.docx."
+    },
+    {
+      "id": "p2-base-ins",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "60abd5e4240acf162b39111f4a9ed14033cf775d3a93d61efddd077f8d9b570b",
+          "bytes": 36811
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "60762a3c20f6caddf8ce1d852a07ac8a17a9d658d9f5aaa95b7f032460034082",
+          "bytes": 36724
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "2bce90957d2162603ee236d2eb8e8180ff0aa15139db61f0b98029e7769199e1",
+          "bytes": 26588
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "bdbdcad0325235c03dbb5dea66fdac049061f80145ac41ed36f1f22fef9e56c5",
+          "bytes": 3870
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "tracked_insertion_base_only",
+        "description": "Base's middle paragraph carries a Prior Author tracked insertion ('final'); revised carries the same paragraph plain, without the word. Accept-resolved texts differ by 'final'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-base-ins",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2-both-del",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "3abb1d7ff25a4481d1298e8f2691efaf8086a25d1381677ebe7017bfb05f98d2",
+          "bytes": 36818
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "346161dbcad3cd98399b6e4445b3734ae841a0b9aae4c1c741023740ab129893",
+          "bytes": 36823
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "af06d8ddd832d8797aa403768775daa74ecb1d68d7681f647112ecea8b7dfb3c",
+          "bytes": 26507
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "8198ddefdf25f435ea3c8b94f1838b6ed94f9e4b8c0c7806c0789f480e34af93",
+          "bytes": 4036
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "tracked_deletion_both",
+        "description": "Both inputs carry a Prior Author tracked deletion in the same paragraph, of different words ('draft' base, 'interim' revised). Accept-resolved texts are IDENTICAL."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-both-del",
+        "word_compare_source_file": "word-diag-verb.docx"
+      },
+      "notes": "Word's dialog route produced no result document for this pair (RESULT_NONE: the tracked-changes prompt's Yes semantics make the accept-resolved inputs identical). The study's measured Word output is the verb-route equivalent, word-diag-verb.docx (Word compare verb, warnings ignored = prompt Yes, baseline settings vector); it is used here as word-compare.docx."
+    },
+    {
+      "id": "p2-both-fmt",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "11bb844d71a80eedbe9a89268b454c76f6e4700ea52d45af54cf5f045ef5182b",
+          "bytes": 36855
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "16cee75ed090d815f382fe66605b3bf359a0d7d6f9c5d725b0218706291d0599",
+          "bytes": 36854
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "6f1aed321957add8c433e70b79c97f117c95b9512a11c1e5f91c4c897c6c9465",
+          "bytes": 26565
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "d51fbf2c55d348c8318a1914ccbf58c388fb08a6012991b4459711cbde392d69",
+          "bytes": 4557
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "formatting_change_both",
+        "description": "Both inputs carry the same formatting changes as Prior Author property-change records (different ids/dates per side)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-both-fmt",
+        "word_compare_source_file": "word-diag-verb.docx"
+      },
+      "notes": "Word's dialog route produced no result document for this pair (RESULT_NONE: the tracked-changes prompt's Yes semantics make the accept-resolved inputs identical). The study's measured Word output is the verb-route equivalent, word-diag-verb.docx (Word compare verb, warnings ignored = prompt Yes, baseline settings vector); it is used here as word-compare.docx."
+    },
+    {
+      "id": "p2-both-ins",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "60abd5e4240acf162b39111f4a9ed14033cf775d3a93d61efddd077f8d9b570b",
+          "bytes": 36811
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "79ee0ed3332cd06a475fd16568a4b7a0e4ecfd478a9f4d417d1c71cd2176fb51",
+          "bytes": 36809
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "8200810952764148616bfa3550c57a9553ae2eebcb7cdffae543a84cfc55e9fc",
+          "bytes": 26615
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "c64609b246746add18679c0ec9850ba89ba428b16f8720da572120ed8a40abf2",
+          "bytes": 4035
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "tracked_insertion_both",
+        "description": "Both inputs carry a Prior Author tracked insertion in the same paragraph, of different words ('final' base, 'revised' revised)."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-both-ins",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2-both-samepara",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "60abd5e4240acf162b39111f4a9ed14033cf775d3a93d61efddd077f8d9b570b",
+          "bytes": 36811
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "ad90b6a7ed765c47d450b87b32f56ba3d2b38df0c5789109c847c7518f726a37",
+          "bytes": 36818
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "cfb4509c200b1c8d1f574adb56a8625ea5e1542b145d26b072ccb191d6f0b5b8",
+          "bytes": 26607
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "1784fdd189a12415ea133b65e1e36f626e3070a2b1e017d1fd841a0124046545",
+          "bytes": 4082
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "both_inputs_same_paragraph_different_change",
+        "description": "Same paragraph revised on both sides with different changes: base carries a Prior Author tracked insertion ('final'), revised carries a Prior Author tracked deletion ('old')."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-both-samepara",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2-control",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "13e80e874ba6fb9e8d870f427db1e0c8b7bec425d7401a5a5038d225693e94ae",
+          "bytes": 36647
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "384f223cd4591524ef83740f8e4a450f1c2b3b52889872d6fc31f049883b89df",
+          "bytes": 36648
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "ebd4b4de04daa866820659fa6a558faf2bbab41758c1504cbff8c966fd6a472a",
+          "bytes": 26495
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "9b9f3f23e35a5e056f4a7b88233e4bf2e80e085d218bfa229e2e858ce1b1afd3",
+          "bytes": 2097
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "control_no_tracked_changes",
+        "description": "Copy of the Phase-0 p0-sub-word pair (single-word substitution 'draft' -> 'final'); neither input carries tracked changes. Control for prompt absence and baseline agreement."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-control",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p2-rev-del",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "60762a3c20f6caddf8ce1d852a07ac8a17a9d658d9f5aaa95b7f032460034082",
+          "bytes": 36724
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "2cd0ffdd194990499bbe327f0577f9927ca22ce745fba8a067ca62a972af2a65",
+          "bytes": 36818
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "b7988d644c6e4c64bf76609a07cc692291ee201b82fbd4f997d2035ebbe6a754",
+          "bytes": 26486
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "37333e413b5d16b37bd27b1c78be78827e2235bd260f19e26f33544270679696",
+          "bytes": 3854
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "tracked_deletion_revised_only",
+        "description": "Revised's middle paragraph carries a Prior Author tracked deletion ('draft'); base is the accepted state as plain text. Accept-resolved texts are IDENTICAL. The #5920 cell."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-rev-del",
+        "word_compare_source_file": "word-diag-verb.docx"
+      },
+      "notes": "Word's dialog route produced no result document for this pair (RESULT_NONE: the tracked-changes prompt's Yes semantics make the accept-resolved inputs identical). The study's measured Word output is the verb-route equivalent, word-diag-verb.docx (Word compare verb, warnings ignored = prompt Yes, baseline settings vector); it is used here as word-compare.docx."
+    },
+    {
+      "id": "p2-rev-fmt",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "da5eff857693ceebdecb456fba6c5842f81958be7f35fd4c1a4972cb75dff146",
+          "bytes": 36787
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "16cee75ed090d815f382fe66605b3bf359a0d7d6f9c5d725b0218706291d0599",
+          "bytes": 36854
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "669d7ea0c2d12ab0dd6417b9f6b546318d9d7373e29c9ba8446026898f5b001e",
+          "bytes": 26547
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "7a49254a620e1459c22968c1ca4a50f7833e2b4de887dc8baffb2c43161b8295",
+          "bytes": 4047
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "formatting_change_revised_only",
+        "description": "Mirror of p2-base-fmt: the property-change records sit in the revised document."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-rev-fmt",
+        "word_compare_source_file": "word-diag-verb.docx"
+      },
+      "notes": "Word's dialog route produced no result document for this pair (RESULT_NONE: the tracked-changes prompt's Yes semantics make the accept-resolved inputs identical). The study's measured Word output is the verb-route equivalent, word-diag-verb.docx (Word compare verb, warnings ignored = prompt Yes, baseline settings vector); it is used here as word-compare.docx."
+    },
+    {
+      "id": "p2-rev-ins",
+      "source_phase": "phase2-tracked",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "60762a3c20f6caddf8ce1d852a07ac8a17a9d658d9f5aaa95b7f032460034082",
+          "bytes": 36724
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "f0d3f139b13c663ad3f28fe9f2df6baa64172b132ae964fc69ae84ff706659d1",
+          "bytes": 36810
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "db7c516e971168efce2170154772d2aac24d61e57afdbfac7ddae0122214f8d5",
+          "bytes": 26583
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "f38b6a421182b0ee40abca391fb9f6ac51e001fd812e418c625491d20a360d14",
+          "bytes": 3809
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "Compare dialog invoked via Tools > Track Changes > Compare Documents... (menu path). The AppleScript display-dialog shim silently aborts compares on tracked-changes inputs (no prompt, no result).",
+          "toggles": {
+            "Insertions and deletions": true,
+            "Moves": true,
+            "Formatting": true,
+            "Case changes": true,
+            "White space": true,
+            "Comments": true,
+            "Tables": true,
+            "Headers and footers": true,
+            "Footnotes and endnotes": true,
+            "Textboxes": true,
+            "Fields": true
+          },
+          "granularity": "Word level",
+          "destination": "New document",
+          "label": "",
+          "label_divergence": "Label cannot be set on Word for Mac 16.114.4 (both fields disabled; Phase-1 finding, Reuben ruled accept 'Author').",
+          "prompt_policy_scored": "Yes"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "tracked_insertion_revised_only",
+        "description": "Revised's middle paragraph carries a Prior Author tracked insertion ('final'); base is plain without the word."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase2-tracked/p2-rev-ins",
+        "word_compare_source_file": "word.docx"
+      }
+    },
+    {
+      "id": "p3-churn-long",
+      "source_phase": "phase3",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "76b127cc660b5de7b2f9fa5c2060fd201d54d2a15a00d9a05ef5bbf77e5ab877",
+          "bytes": 36891
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "e251e6279d651939128cab640a45b963f08d53a32f93d12624974fd87ca6921f",
+          "bytes": 36934
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "f1b264a76da63a2eab5cebba72a25f2f26c5122a30e826f5883ae35af57045a5",
+          "bytes": 26748
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "b33a37b37202e8f8507fe89030749edeae960000d98e44ddb0d503bc748e8dba",
+          "bytes": 2014
+        }
+      },
+      "word_build": null,
+      "wordcraft_head": "ab0020d6",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "system": "word",
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "toggles": {
+            "formatting": true,
+            "caseChanges": true,
+            "whiteSpace": true,
+            "tables": true,
+            "headersFooters": true,
+            "footnotes": true,
+            "textBoxes": true,
+            "fields": true,
+            "comments": true,
+            "moves": true
+          },
+          "level": "word",
+          "destination": "new",
+          "author": "Compare Study",
+          "ignoreAllComparisonWarnings": false
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "level": "word",
+          "author": "Compare Study",
+          "showIn": "new",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "insert_sentence_mid_paragraph_long",
+        "description": "One sentence inserted mid-paragraph in a ~560-char five-sentence paragraph. The inserted sentence follows a sentence ending '...to the members.' and itself opens 'The members ...' \u2014 the Phase-0 churn boundary shape at longer scale."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase3/p3-churn-long",
+        "word_compare_source_file": "word-wl.docx"
+      },
+      "notes": "Word-level arm (word-wl.docx) of the Phase 3 churn cell, run at the full baseline settings vector; the character-level arm (word-char.docx) is a settings variant and is excluded from the seed."
+    },
+    {
+      "id": "p4-budget-fewlong",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "08ce3d06acbc94182a17c6647fc1fd29cb09f96f7fc553e7c594f58172bb3db0",
+          "bytes": 101687
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d427cfa28d3bf3626c6da13c27c330fa6678ff3a70810f17455295cb35ae6306",
+          "bytes": 101730
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "5e8a633706fd7df4a9277eb4cf1a68475366c830c3b6a2ca011165d49a61b7e4",
+          "bytes": 260219
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "701732130dc55562d72c14e6f828ee89abe50431ceb2593dbb16cc7636d32b9a",
+          "bytes": 571199
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "budget_exhaustion_alternating_tokens",
+        "description": "15 paragraphs x 2000 tokens; 1001 tokens changed per paragraph at even indices and the last index (token trim zero). Block table charges 225 cells; each pair table 4000000 cells; predicted surgical pairs 12, wholesale-fallback pairs 3."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-budget-fewlong",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-budget-manypairs",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "01201b1a9d296eb472491abce71ed2642f5de9c4f94b6efc144bc2d1db4fb12f",
+          "bytes": 294230
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "fb4f174f9f59d8a8d13f5fe9b8fb8b579dd58de663b546cce0ad531f068ce82e",
+          "bytes": 294230
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "31353d7f3963c66165a80fc183b0586c24e5c6a607bf18ba495d43ce5e7d5490",
+          "bytes": 1136896
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "126d39c65a78fbe8241fb401988a5934438bb71b2439cbb9fdd32dc986b283c8",
+          "bytes": 2577035
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "budget_exhaustion_alternating_tokens",
+        "description": "300 paragraphs x 450 tokens; 226 tokens changed per paragraph at even indices and the last index (token trim zero). Block table charges 90000 cells; each pair table 202500 cells; predicted surgical pairs 246, wholesale-fallback pairs 54."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-budget-manypairs",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-dense-long",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "c937beac99c110d8d6dfbb869222f49d756bae6da36152cd5c24eed87d2b81e5",
+          "bytes": 37956
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "e19951df2e155a1245c90b34838b3402fc3c935d5e4c685403fe0353f522ab34",
+          "bytes": 37981
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "3c2594700749c712f1b23e4dbfe65da991d61cb3267eb263986dc3c312235c37",
+          "bytes": 29054
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "2dfef868597335b402d26274f384adc76b27fdf5e9e058d030b151fab03555bd",
+          "bytes": 7002
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "dense_single_paragraph",
+        "description": "One paragraph, 680 words / 6116 chars; 68 whole-word substitutions (every i%10==5) plus 3 harbour->harbor spelling tweaks at [100, 340, 600]."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-dense-long",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-dense-short",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "9dd7d39e980e2334a700f646760e7698d94c59c6cc0fe3a8dc90805bc4f9a398",
+          "bytes": 37017
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "bfdb8c07b89984e3262c515477e5e613b906b55ae9fb868b0c9c46a01d264088",
+          "bytes": 37025
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "d06dcd99977298f38d0a98e86583d218ae26c057f137a92684195a47f832d0ee",
+          "bytes": 27223
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "031590f1749cd98d1f12d3f3d196e8799769bbc58618fc979b85bb1fee76b550",
+          "bytes": 2455
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "dense_single_paragraph",
+        "description": "One paragraph, 200 words / 1797 chars; 20 whole-word substitutions (every i%10==5) plus 2 harbour->harbor spelling tweaks at [50, 150]."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-dense-short",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-ladder-10",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "b91f75e91cf77476f17071087a414315ee294e573875eb31907dedf5aca8d5e4",
+          "bytes": 36654
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d20c8f85dd88609f0db710f254e2a30816df9d5750157dc478f46cf4493ed92e",
+          "bytes": 36661
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "16bb16f85be7390f11bf021ddffd0f2058286012e7b609130f08954d07a0d502",
+          "bytes": 26588
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "00a7e0afef7cd40842961b2b742c172395a87c06cefe5da3043dc53b84773006",
+          "bytes": 387
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "scaling_ladder_one_word_change",
+        "description": "10 paragraphs; exactly one word changes in paragraph 5: 'nominal' -> 'flagged'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-ladder-10",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-ladder-100",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "8d52176e77b6929ac8f7bf2cb5f9ef3b608afe45c1fb41d44ffc3fc3c585daf8",
+          "bytes": 36928
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "07f53012059ebfde551edb31e77f8a3ccf5515c3262c8514e8c022753b7510c8",
+          "bytes": 36936
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "88c66f8508a649f4c36299b483b9dfcff678bbdf1efebd6bbba650420bcbb75b",
+          "bytes": 27561
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "288c150dbe4c362d86adb6c3b101c36b80ed1f59062a09c914202ff91afd88f2",
+          "bytes": 392
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "scaling_ladder_one_word_change",
+        "description": "100 paragraphs; exactly one word changes in paragraph 50: 'nominal' -> 'flagged'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-ladder-100",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-ladder-1000",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "5a075914cdc8e8709ea57501b6a403d1adb2b2d0e95138e280b513a1f5fd2cbb",
+          "bytes": 39613
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "d6f96e162e86f41ae5c35b052a6f527a816fceece4799772164278fcd7d82aa1",
+          "bytes": 39624
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "0ffdba35326fbc9beec0a0bff8f720fedea24428abddf239ed8505d943d47789",
+          "bytes": 36085
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "949739307777aaa6b6f5603c75e872c68e99433b9b63f544d1ce1aa0266fd85a",
+          "bytes": 397
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "scaling_ladder_one_word_change",
+        "description": "1000 paragraphs; exactly one word changes in paragraph 500: 'nominal' -> 'flagged'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-ladder-1000",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-ladder-500",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "a260090284fceec1522d06fe618c04412539d95c9e4d814ede038ed5f752569a",
+          "bytes": 38132
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "6913deb2ce02d06e81b29a2f499d4ed05555f74ebfaaf37a4a3ca0553493c47a",
+          "bytes": 38141
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "a79072f29a2b718d22b74983cd4dc883718ac3130ceaa969a73bfe084c5112bd",
+          "bytes": 31389
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "836bd207189a96b222f5f3af762fc40697cdf13aa6d6d0dd39ee148b1a7cea9a",
+          "bytes": 394
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "scaling_ladder_one_word_change",
+        "description": "500 paragraphs; exactly one word changes in paragraph 250: 'nominal' -> 'flagged'."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-ladder-500",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-lcs-move",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "47756986b3f4ee19dbf9b6ad990ac061fb3ff779c75efed1e4b68fb8276ad6f3",
+          "bytes": 49829
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "69c735743d61056e7e3ab6e9430d8266ab1b58f88bb130aa47a4307138261b41",
+          "bytes": 49860
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "47e9b291ffcbbb5d620dbb25345578fb40829e19b1d7e4c633e6f8d0db5a8df8",
+          "bytes": 69330
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "4de587c55b4648db87d8c2f6126e48f11395cf394d0d379de55d82d4c3c2c4f8",
+          "bytes": 799
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "block_move_across_lcs_window",
+        "description": "4600 blocks; one-word substitutions in blocks 0 and 4599 (trim zero); record 100 moves from index 100 to index 4400. Token truth counts the move as del+ins of the record's tokens."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-lcs-move",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    },
+    {
+      "id": "p4-lcs-move-ctl",
+      "source_phase": "phase4",
+      "files": {
+        "base": {
+          "file": "base.docx",
+          "sha256": "47756986b3f4ee19dbf9b6ad990ac061fb3ff779c75efed1e4b68fb8276ad6f3",
+          "bytes": 49829
+        },
+        "revised": {
+          "file": "revised.docx",
+          "sha256": "de2670c573488c479b9fb7b89ae0d2941e484a03e2c4294d2c01c769c067fdb9",
+          "bytes": 49861
+        },
+        "word_compare": {
+          "file": "word-compare.docx",
+          "sha256": "cda98b7c6d003433b590529aa5a82414e917297b690cd2ccd5f475488fd78c70",
+          "bytes": 69340
+        },
+        "truth": {
+          "file": "truth.json",
+          "sha256": "d4d0d5170de5e58d6ff97e63b78256502fd3c7b7c9c247984735557dc996918a",
+          "bytes": 803
+        }
+      },
+      "word_build": "Word for Mac 16.114.4",
+      "wordcraft_head": "ab0020d6f4c0b823fa1617b467e1b33b634134db",
+      "settings": {
+        "scope": "entry",
+        "word": {
+          "route": "VBA CompareDocuments (WsCompareRun)",
+          "author": "Compare Study",
+          "toggles_on": {
+            "formatting": 1,
+            "case": 1,
+            "whitespace": 1,
+            "tables": 1,
+            "headersFooters": 1,
+            "footnotes": 1,
+            "textboxes": 1,
+            "fields": 1,
+            "comments": 1,
+            "moves": 1
+          },
+          "level": "word",
+          "granularity": 1,
+          "ignoreWarnings": 1,
+          "destination": "new"
+        },
+        "wordcraft": {
+          "caseChanges": true,
+          "whiteSpace": true,
+          "formatting": true,
+          "author": "Compare Study",
+          "showIn": "new",
+          "level": "word",
+          "path": "revised.docx"
+        }
+      },
+      "truth_summary": {
+        "change_type": "block_move_across_lcs_window",
+        "description": "4600 blocks; one-word substitutions in blocks 0 and 4599 (trim zero); record 100 moves from index 100 to index 3900. Token truth counts the move as del+ins of the record's tokens."
+      },
+      "provenance": {
+        "study_corpus_dir": "workspace/wordcraft-compare-vs-word/corpus/phase4/p4-lcs-move-ctl",
+        "word_compare_source_file": "word-word-r1.docx"
+      },
+      "notes": "Canonical Word output per results/word_phase4_runs.jsonl: arm=word, level=word, rep=1 (word-word-r1.docx). Character-level runs (dense pairs) and reps r2/r3 are variants/repeats and were not used."
+    }
+  ]
+}

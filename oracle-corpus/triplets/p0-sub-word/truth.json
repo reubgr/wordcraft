@@ -1,0 +1,23 @@
+{
+  "id": "p0-sub-word",
+  "change_type": "substitute_word",
+  "description": "Single-word substitution mid-sentence: 'draft' -> 'final'.",
+  "base_paragraphs": [
+    "The committee reviewed the draft agreement on Tuesday and approved the revised budget for the coming fiscal year."
+  ],
+  "revised_paragraphs": [
+    "The committee reviewed the final agreement on Tuesday and approved the revised budget for the coming fiscal year."
+  ],
+  "inserted_tokens": [
+    "final"
+  ],
+  "deleted_tokens": [
+    "draft"
+  ],
+  "substituted": [
+    {
+      "from": "draft",
+      "to": "final"
+    }
+  ]
+}

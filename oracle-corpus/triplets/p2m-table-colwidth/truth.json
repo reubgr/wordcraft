@@ -1,0 +1,9 @@
+{
+  "id": "p2m-table-colwidth",
+  "change_type": "table_column_width_change",
+  "description": "Cell texts identical; column widths change from 2in/2in to 1in/3in (gridCol + tcW).",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Formatting-only at table level. Score via tcPrChange / tblGrid inspection."
+}

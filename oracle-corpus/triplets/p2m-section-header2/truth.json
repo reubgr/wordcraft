@@ -1,0 +1,20 @@
+{
+  "id": "p2m-section-header2",
+  "change_type": "second_section_header_change",
+  "description": "Two-section document; only the SECOND section's header text changes ('Base' -> 'Revised'). Bodies identical.",
+  "inserted_tokens": [
+    "Section",
+    "Two",
+    "Header",
+    "Revised"
+  ],
+  "deleted_tokens": [
+    "Section",
+    "Two",
+    "Header",
+    "Base"
+  ],
+  "substituted": [],
+  "part": "word/header*.xml (second section)",
+  "note": "Revisions, if any, land in the second section's header part."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "p2m-section-orient",
+  "change_type": "section_orientation_change",
+  "description": "Identical body text; the section turns from portrait to landscape (pgSz w/h swap + orient flag).",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Formatting-only at section level. Score via sectPrChange census + pgSz inspection."
+}

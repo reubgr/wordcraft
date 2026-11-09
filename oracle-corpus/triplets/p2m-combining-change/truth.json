@@ -1,0 +1,9 @@
+{
+  "id": "p2m-combining-change",
+  "change_type": "combining_sequence_change",
+  "description": "Visible text identical; 'caf\u00e9' is precomposed (U+00E9) in base and decomposed (e + U+0301) in revised. Canonically equivalent, codepoint-different.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Token streams (whitespace split) are identical. Score via codepoint-level raw text comparison + any emitted revisions."
+}

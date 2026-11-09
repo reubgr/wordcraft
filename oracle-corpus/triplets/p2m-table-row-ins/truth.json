@@ -1,0 +1,11 @@
+{
+  "id": "p2m-table-row-ins",
+  "change_type": "table_row_inserted",
+  "description": "A new row [inserted-one, inserted-two] appears between the two existing rows; all other cell texts identical.",
+  "inserted_tokens": [
+    "inserted-one",
+    "inserted-two"
+  ],
+  "deleted_tokens": [],
+  "substituted": []
+}

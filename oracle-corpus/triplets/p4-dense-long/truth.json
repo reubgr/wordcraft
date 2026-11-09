@@ -1,0 +1,447 @@
+{
+  "id": "p4-dense-long",
+  "change_type": "dense_single_paragraph",
+  "description": "One paragraph, 680 words / 6116 chars; 68 whole-word substitutions (every i%10==5) plus 3 harbour->harbor spelling tweaks at [100, 340, 600].",
+  "inserted_tokens": [
+    "rev0005",
+    "rev0015",
+    "rev0025",
+    "rev0035",
+    "rev0045",
+    "rev0055",
+    "rev0065",
+    "rev0075",
+    "rev0085",
+    "rev0095",
+    "harbor",
+    "rev0105",
+    "rev0115",
+    "rev0125",
+    "rev0135",
+    "rev0145",
+    "rev0155",
+    "rev0165",
+    "rev0175",
+    "rev0185",
+    "rev0195",
+    "rev0205",
+    "rev0215",
+    "rev0225",
+    "rev0235",
+    "rev0245",
+    "rev0255",
+    "rev0265",
+    "rev0275",
+    "rev0285",
+    "rev0295",
+    "rev0305",
+    "rev0315",
+    "rev0325",
+    "rev0335",
+    "harbor",
+    "rev0345",
+    "rev0355",
+    "rev0365",
+    "rev0375",
+    "rev0385",
+    "rev0395",
+    "rev0405",
+    "rev0415",
+    "rev0425",
+    "rev0435",
+    "rev0445",
+    "rev0455",
+    "rev0465",
+    "rev0475",
+    "rev0485",
+    "rev0495",
+    "rev0505",
+    "rev0515",
+    "rev0525",
+    "rev0535",
+    "rev0545",
+    "rev0555",
+    "rev0565",
+    "rev0575",
+    "rev0585",
+    "rev0595",
+    "harbor",
+    "rev0605",
+    "rev0615",
+    "rev0625",
+    "rev0635",
+    "rev0645",
+    "rev0655",
+    "rev0665",
+    "rev0675"
+  ],
+  "deleted_tokens": [
+    "base0005",
+    "base0015",
+    "base0025",
+    "base0035",
+    "base0045",
+    "base0055",
+    "base0065",
+    "base0075",
+    "base0085",
+    "base0095",
+    "harbour",
+    "base0105",
+    "base0115",
+    "base0125",
+    "base0135",
+    "base0145",
+    "base0155",
+    "base0165",
+    "base0175",
+    "base0185",
+    "base0195",
+    "base0205",
+    "base0215",
+    "base0225",
+    "base0235",
+    "base0245",
+    "base0255",
+    "base0265",
+    "base0275",
+    "base0285",
+    "base0295",
+    "base0305",
+    "base0315",
+    "base0325",
+    "base0335",
+    "harbour",
+    "base0345",
+    "base0355",
+    "base0365",
+    "base0375",
+    "base0385",
+    "base0395",
+    "base0405",
+    "base0415",
+    "base0425",
+    "base0435",
+    "base0445",
+    "base0455",
+    "base0465",
+    "base0475",
+    "base0485",
+    "base0495",
+    "base0505",
+    "base0515",
+    "base0525",
+    "base0535",
+    "base0545",
+    "base0555",
+    "base0565",
+    "base0575",
+    "base0585",
+    "base0595",
+    "harbour",
+    "base0605",
+    "base0615",
+    "base0625",
+    "base0635",
+    "base0645",
+    "base0655",
+    "base0665",
+    "base0675"
+  ],
+  "substituted": [
+    {
+      "from": "base0005",
+      "to": "rev0005"
+    },
+    {
+      "from": "base0015",
+      "to": "rev0015"
+    },
+    {
+      "from": "base0025",
+      "to": "rev0025"
+    },
+    {
+      "from": "base0035",
+      "to": "rev0035"
+    },
+    {
+      "from": "base0045",
+      "to": "rev0045"
+    },
+    {
+      "from": "base0055",
+      "to": "rev0055"
+    },
+    {
+      "from": "base0065",
+      "to": "rev0065"
+    },
+    {
+      "from": "base0075",
+      "to": "rev0075"
+    },
+    {
+      "from": "base0085",
+      "to": "rev0085"
+    },
+    {
+      "from": "base0095",
+      "to": "rev0095"
+    },
+    {
+      "from": "harbour",
+      "to": "harbor",
+      "kind": "char_tweak"
+    },
+    {
+      "from": "base0105",
+      "to": "rev0105"
+    },
+    {
+      "from": "base0115",
+      "to": "rev0115"
+    },
+    {
+      "from": "base0125",
+      "to": "rev0125"
+    },
+    {
+      "from": "base0135",
+      "to": "rev0135"
+    },
+    {
+      "from": "base0145",
+      "to": "rev0145"
+    },
+    {
+      "from": "base0155",
+      "to": "rev0155"
+    },
+    {
+      "from": "base0165",
+      "to": "rev0165"
+    },
+    {
+      "from": "base0175",
+      "to": "rev0175"
+    },
+    {
+      "from": "base0185",
+      "to": "rev0185"
+    },
+    {
+      "from": "base0195",
+      "to": "rev0195"
+    },
+    {
+      "from": "base0205",
+      "to": "rev0205"
+    },
+    {
+      "from": "base0215",
+      "to": "rev0215"
+    },
+    {
+      "from": "base0225",
+      "to": "rev0225"
+    },
+    {
+      "from": "base0235",
+      "to": "rev0235"
+    },
+    {
+      "from": "base0245",
+      "to": "rev0245"
+    },
+    {
+      "from": "base0255",
+      "to": "rev0255"
+    },
+    {
+      "from": "base0265",
+      "to": "rev0265"
+    },
+    {
+      "from": "base0275",
+      "to": "rev0275"
+    },
+    {
+      "from": "base0285",
+      "to": "rev0285"
+    },
+    {
+      "from": "base0295",
+      "to": "rev0295"
+    },
+    {
+      "from": "base0305",
+      "to": "rev0305"
+    },
+    {
+      "from": "base0315",
+      "to": "rev0315"
+    },
+    {
+      "from": "base0325",
+      "to": "rev0325"
+    },
+    {
+      "from": "base0335",
+      "to": "rev0335"
+    },
+    {
+      "from": "harbour",
+      "to": "harbor",
+      "kind": "char_tweak"
+    },
+    {
+      "from": "base0345",
+      "to": "rev0345"
+    },
+    {
+      "from": "base0355",
+      "to": "rev0355"
+    },
+    {
+      "from": "base0365",
+      "to": "rev0365"
+    },
+    {
+      "from": "base0375",
+      "to": "rev0375"
+    },
+    {
+      "from": "base0385",
+      "to": "rev0385"
+    },
+    {
+      "from": "base0395",
+      "to": "rev0395"
+    },
+    {
+      "from": "base0405",
+      "to": "rev0405"
+    },
+    {
+      "from": "base0415",
+      "to": "rev0415"
+    },
+    {
+      "from": "base0425",
+      "to": "rev0425"
+    },
+    {
+      "from": "base0435",
+      "to": "rev0435"
+    },
+    {
+      "from": "base0445",
+      "to": "rev0445"
+    },
+    {
+      "from": "base0455",
+      "to": "rev0455"
+    },
+    {
+      "from": "base0465",
+      "to": "rev0465"
+    },
+    {
+      "from": "base0475",
+      "to": "rev0475"
+    },
+    {
+      "from": "base0485",
+      "to": "rev0485"
+    },
+    {
+      "from": "base0495",
+      "to": "rev0495"
+    },
+    {
+      "from": "base0505",
+      "to": "rev0505"
+    },
+    {
+      "from": "base0515",
+      "to": "rev0515"
+    },
+    {
+      "from": "base0525",
+      "to": "rev0525"
+    },
+    {
+      "from": "base0535",
+      "to": "rev0535"
+    },
+    {
+      "from": "base0545",
+      "to": "rev0545"
+    },
+    {
+      "from": "base0555",
+      "to": "rev0555"
+    },
+    {
+      "from": "base0565",
+      "to": "rev0565"
+    },
+    {
+      "from": "base0575",
+      "to": "rev0575"
+    },
+    {
+      "from": "base0585",
+      "to": "rev0585"
+    },
+    {
+      "from": "base0595",
+      "to": "rev0595"
+    },
+    {
+      "from": "harbour",
+      "to": "harbor",
+      "kind": "char_tweak"
+    },
+    {
+      "from": "base0605",
+      "to": "rev0605"
+    },
+    {
+      "from": "base0615",
+      "to": "rev0615"
+    },
+    {
+      "from": "base0625",
+      "to": "rev0625"
+    },
+    {
+      "from": "base0635",
+      "to": "rev0635"
+    },
+    {
+      "from": "base0645",
+      "to": "rev0645"
+    },
+    {
+      "from": "base0655",
+      "to": "rev0655"
+    },
+    {
+      "from": "base0665",
+      "to": "rev0665"
+    },
+    {
+      "from": "base0675",
+      "to": "rev0675"
+    }
+  ],
+  "words": 680,
+  "para_chars": 6116,
+  "tweak_indices": [
+    100,
+    340,
+    600
+  ]
+}

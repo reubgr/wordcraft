@@ -1,0 +1,19 @@
+{
+  "id": "p4-ladder-100",
+  "change_type": "scaling_ladder_one_word_change",
+  "description": "100 paragraphs; exactly one word changes in paragraph 50: 'nominal' -> 'flagged'.",
+  "inserted_tokens": [
+    "flagged"
+  ],
+  "deleted_tokens": [
+    "nominal"
+  ],
+  "substituted": [
+    {
+      "from": "nominal",
+      "to": "flagged"
+    }
+  ],
+  "blocks": 100,
+  "changed_block_index": 50
+}

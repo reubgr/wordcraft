@@ -1,0 +1,9 @@
+{
+  "id": "p1-formatting-only",
+  "change_type": "formatting_only",
+  "description": "The word 'draft' is bolded in the revised document; the text is identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Formatting-only difference; token F1 is vacuous. Score via formatting-revision census (rPrChange)."
+}

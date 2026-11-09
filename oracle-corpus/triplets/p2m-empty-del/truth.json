@@ -1,0 +1,17 @@
+{
+  "id": "p2m-empty-del",
+  "change_type": "one_paragraph_to_empty",
+  "description": "Base has one paragraph; revised has an empty body (no paragraphs).",
+  "inserted_tokens": [],
+  "deleted_tokens": [
+    "A",
+    "single",
+    "paragraph",
+    "appears",
+    "in",
+    "the",
+    "empty",
+    "file."
+  ],
+  "substituted": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "p2m-manyblocks",
+  "change_type": "many_blocks_one_change",
+  "description": "4500 paragraphs (> 4000, WordCraft's MAX_LCS per side); exactly one word changes in paragraph 2249: 'nominal' -> 'flagged'.",
+  "inserted_tokens": [
+    "flagged"
+  ],
+  "deleted_tokens": [
+    "nominal"
+  ],
+  "substituted": [
+    {
+      "from": "nominal",
+      "to": "flagged"
+    }
+  ],
+  "blocks": 4500,
+  "changed_block_index": 2249
+}

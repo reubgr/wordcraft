@@ -1,0 +1,9 @@
+{
+  "id": "p2m-image-resize",
+  "change_type": "image_resized",
+  "description": "The same image (identical bytes) is displayed at 1.5in wide instead of 1.0in; text identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Formatting-only on the drawing extent (wp:extent / a:ext). Score via extent inspection + rPrChange census."
+}

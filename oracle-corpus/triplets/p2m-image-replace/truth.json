@@ -1,0 +1,9 @@
+{
+  "id": "p2m-image-replace",
+  "change_type": "image_replaced",
+  "description": "The inline image is replaced by a different image (red -> blue PNG) at the same pixel size and the same display size (1in wide); surrounding text identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "No text change. Score via drawing/media inspection: media part hash, drawing census."
+}

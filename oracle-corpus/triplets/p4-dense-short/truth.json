@@ -1,0 +1,151 @@
+{
+  "id": "p4-dense-short",
+  "change_type": "dense_single_paragraph",
+  "description": "One paragraph, 200 words / 1797 chars; 20 whole-word substitutions (every i%10==5) plus 2 harbour->harbor spelling tweaks at [50, 150].",
+  "inserted_tokens": [
+    "rev0005",
+    "rev0015",
+    "rev0025",
+    "rev0035",
+    "rev0045",
+    "harbor",
+    "rev0055",
+    "rev0065",
+    "rev0075",
+    "rev0085",
+    "rev0095",
+    "rev0105",
+    "rev0115",
+    "rev0125",
+    "rev0135",
+    "rev0145",
+    "harbor",
+    "rev0155",
+    "rev0165",
+    "rev0175",
+    "rev0185",
+    "rev0195"
+  ],
+  "deleted_tokens": [
+    "base0005",
+    "base0015",
+    "base0025",
+    "base0035",
+    "base0045",
+    "harbour",
+    "base0055",
+    "base0065",
+    "base0075",
+    "base0085",
+    "base0095",
+    "base0105",
+    "base0115",
+    "base0125",
+    "base0135",
+    "base0145",
+    "harbour",
+    "base0155",
+    "base0165",
+    "base0175",
+    "base0185",
+    "base0195"
+  ],
+  "substituted": [
+    {
+      "from": "base0005",
+      "to": "rev0005"
+    },
+    {
+      "from": "base0015",
+      "to": "rev0015"
+    },
+    {
+      "from": "base0025",
+      "to": "rev0025"
+    },
+    {
+      "from": "base0035",
+      "to": "rev0035"
+    },
+    {
+      "from": "base0045",
+      "to": "rev0045"
+    },
+    {
+      "from": "harbour",
+      "to": "harbor",
+      "kind": "char_tweak"
+    },
+    {
+      "from": "base0055",
+      "to": "rev0055"
+    },
+    {
+      "from": "base0065",
+      "to": "rev0065"
+    },
+    {
+      "from": "base0075",
+      "to": "rev0075"
+    },
+    {
+      "from": "base0085",
+      "to": "rev0085"
+    },
+    {
+      "from": "base0095",
+      "to": "rev0095"
+    },
+    {
+      "from": "base0105",
+      "to": "rev0105"
+    },
+    {
+      "from": "base0115",
+      "to": "rev0115"
+    },
+    {
+      "from": "base0125",
+      "to": "rev0125"
+    },
+    {
+      "from": "base0135",
+      "to": "rev0135"
+    },
+    {
+      "from": "base0145",
+      "to": "rev0145"
+    },
+    {
+      "from": "harbour",
+      "to": "harbor",
+      "kind": "char_tweak"
+    },
+    {
+      "from": "base0155",
+      "to": "rev0155"
+    },
+    {
+      "from": "base0165",
+      "to": "rev0165"
+    },
+    {
+      "from": "base0175",
+      "to": "rev0175"
+    },
+    {
+      "from": "base0185",
+      "to": "rev0185"
+    },
+    {
+      "from": "base0195",
+      "to": "rev0195"
+    }
+  ],
+  "words": 200,
+  "para_chars": 1797,
+  "tweak_indices": [
+    50,
+    150
+  ]
+}

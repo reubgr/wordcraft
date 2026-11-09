@@ -1,0 +1,9 @@
+{
+  "id": "p1-whitespace-only",
+  "change_type": "whitespace_only",
+  "description": "Single double-space replaces a single space mid-sentence; token stream is identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Whitespace-only difference; tokens cannot see it. Score via raw text / census, not token F1."
+}

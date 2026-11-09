@@ -1,0 +1,9 @@
+{
+  "id": "p2m-style-para",
+  "change_type": "paragraph_style_change",
+  "description": "Heading paragraph's style changes Heading 1 -> Heading 2; every text node identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Formatting-only (pStyle inside pPr). Score via pPrChange census + style inspection, not F1."
+}

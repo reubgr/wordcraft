@@ -1,0 +1,9 @@
+{
+  "id": "p2m-para-split",
+  "change_type": "paragraph_split",
+  "description": "One paragraph splits into two at the sentence boundary; token stream identical, only the paragraph break is new.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Token F1 vacuous; score via revision structure around the break."
+}

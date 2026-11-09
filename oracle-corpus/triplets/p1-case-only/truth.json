@@ -1,0 +1,17 @@
+{
+  "id": "p1-case-only",
+  "change_type": "case_only",
+  "description": "Single word differs only in letter case: 'Draft' -> 'draft'.",
+  "inserted_tokens": [
+    "draft"
+  ],
+  "deleted_tokens": [
+    "Draft"
+  ],
+  "substituted": [
+    {
+      "from": "Draft",
+      "to": "draft"
+    }
+  ]
+}

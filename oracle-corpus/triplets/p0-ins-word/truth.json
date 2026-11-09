@@ -1,0 +1,16 @@
+{
+  "id": "p0-ins-word",
+  "change_type": "insert_word",
+  "description": "Single-word insertion mid-sentence: 'carefully' added.",
+  "base_paragraphs": [
+    "The committee reviewed the draft agreement on Tuesday and approved the revised budget for the coming fiscal year."
+  ],
+  "revised_paragraphs": [
+    "The committee carefully reviewed the draft agreement on Tuesday and approved the revised budget for the coming fiscal year."
+  ],
+  "inserted_tokens": [
+    "carefully"
+  ],
+  "deleted_tokens": [],
+  "substituted": []
+}

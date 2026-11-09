@@ -1,0 +1,9 @@
+{
+  "id": "p2m-list-convert",
+  "change_type": "bullet_to_numbered",
+  "description": "Identical items; base list is bulleted, revised list is numbered (different abstractNum / numFmt).",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Text identical; numbering format change only."
+}

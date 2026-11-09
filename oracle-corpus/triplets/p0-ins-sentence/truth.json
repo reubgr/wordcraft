@@ -1,0 +1,24 @@
+{
+  "id": "p0-ins-sentence",
+  "change_type": "insert_sentence",
+  "description": "One sentence appended to a two-sentence paragraph.",
+  "base_paragraphs": [
+    "The meeting opened at nine in the morning. The chair presented the quarterly report to the members."
+  ],
+  "revised_paragraphs": [
+    "The meeting opened at nine in the morning. The chair presented the quarterly report to the members. The members then debated the proposal for an hour."
+  ],
+  "inserted_tokens": [
+    "The",
+    "members",
+    "then",
+    "debated",
+    "the",
+    "proposal",
+    "for",
+    "an",
+    "hour."
+  ],
+  "deleted_tokens": [],
+  "substituted": []
+}

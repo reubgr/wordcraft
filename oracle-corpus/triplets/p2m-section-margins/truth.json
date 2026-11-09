@@ -1,0 +1,9 @@
+{
+  "id": "p2m-section-margins",
+  "change_type": "section_margin_change",
+  "description": "Identical body text; section margins change (top/bottom 1in -> 2in, left/right 1in -> 1.5in).",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Formatting-only at section level. Score via sectPrChange census + pgMar inspection."
+}

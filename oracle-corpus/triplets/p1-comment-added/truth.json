@@ -1,0 +1,10 @@
+{
+  "id": "p1-comment-added",
+  "change_type": "comment_added",
+  "description": "Revised adds a comment anchored on the word 'draft' (text: 'Please verify this figure.'); the body text is identical in both documents.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "part": "word/comments.xml",
+  "note": "Score via comment presence in the result's comments part and any body revision census."
+}

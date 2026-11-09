@@ -1,0 +1,33 @@
+{
+  "id": "p3-churn-long",
+  "change_type": "insert_sentence_mid_paragraph_long",
+  "description": "One sentence inserted mid-paragraph in a ~560-char five-sentence paragraph. The inserted sentence follows a sentence ending '...to the members.' and itself opens 'The members ...' \u2014 the Phase-0 churn boundary shape at longer scale.",
+  "base_paragraphs": [
+    "The committee convened at nine in the morning to consider the quarterly accounts and the timetable for the annual general meeting. The treasurer presented the draft budget for the coming fiscal year and answered questions on the revised estimates for the regional offices. The chair then invited the secretary to read the minutes of the previous meeting to the members. Counsel confirmed that the filing deadline falls on the last business day of the month and that no extension would be sought. No further business was raised, and the meeting adjourned shortly before noon with thanks to the chair."
+  ],
+  "revised_paragraphs": [
+    "The committee convened at nine in the morning to consider the quarterly accounts and the timetable for the annual general meeting. The treasurer presented the draft budget for the coming fiscal year and answered questions on the revised estimates for the regional offices. The chair then invited the secretary to read the minutes of the previous meeting to the members. The members then debated the proposal for an hour before turning to the remaining items on the agenda. Counsel confirmed that the filing deadline falls on the last business day of the month and that no extension would be sought. No further business was raised, and the meeting adjourned shortly before noon with thanks to the chair."
+  ],
+  "inserted_tokens": [
+    "The",
+    "members",
+    "then",
+    "debated",
+    "the",
+    "proposal",
+    "for",
+    "an",
+    "hour",
+    "before",
+    "turning",
+    "to",
+    "the",
+    "remaining",
+    "items",
+    "on",
+    "the",
+    "agenda."
+  ],
+  "deleted_tokens": [],
+  "substituted": []
+}

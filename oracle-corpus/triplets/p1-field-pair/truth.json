@@ -1,0 +1,9 @@
+{
+  "id": "p1-field-pair",
+  "change_type": "field_removed_same_text",
+  "description": "Base carries a DATE field whose cached result is '8 November 2026'; revised carries the identical visible text as plain literal runs (no field). Visible token stream is identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Only the field structure differs. Score via fldSimple presence + census, not token F1."
+}

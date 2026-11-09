@@ -1,0 +1,9 @@
+{
+  "id": "p2m-style-run",
+  "change_type": "run_style_change",
+  "description": "The word 'approved' gains the Emphasis character style in revised; text identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Formatting-only (rStyle inside rPr). Score via rPrChange census."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "p0-del-para",
+  "change_type": "delete_paragraph",
+  "description": "Middle paragraph of a 3-paragraph document deleted whole.",
+  "base_paragraphs": [
+    "This memorandum summarises the matters discussed at the partners meeting held on Monday morning.",
+    "Attention then turned to the staffing of the night desk during the winter holiday period.",
+    "The meeting closed with an agreement to circulate the draft minutes before the end of the week."
+  ],
+  "revised_paragraphs": [
+    "This memorandum summarises the matters discussed at the partners meeting held on Monday morning.",
+    "The meeting closed with an agreement to circulate the draft minutes before the end of the week."
+  ],
+  "inserted_tokens": [],
+  "deleted_tokens": [
+    "Attention",
+    "then",
+    "turned",
+    "to",
+    "the",
+    "staffing",
+    "of",
+    "the",
+    "night",
+    "desk",
+    "during",
+    "the",
+    "winter",
+    "holiday",
+    "period."
+  ],
+  "substituted": []
+}

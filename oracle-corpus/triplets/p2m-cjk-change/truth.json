@@ -1,0 +1,11 @@
+{
+  "id": "p2m-cjk-change",
+  "change_type": "cjk_single_char_change",
+  "description": "A CJK paragraph (no spaces) with exactly one character changed: \u8d28 -> \u6570 near the end.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "inserted_text": "\u6570",
+  "deleted_text": "\u8d28",
+  "note": "Whitespace tokenisation sees one token per paragraph; score via raw ins/del text."
+}

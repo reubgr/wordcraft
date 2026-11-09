@@ -1,0 +1,18 @@
+{
+  "id": "p1-textbox-change",
+  "change_type": "textbox_text_change",
+  "description": "A VML text box's text changes ('Draft label' -> 'Final label'); the body paragraph is identical.",
+  "inserted_tokens": [
+    "Final"
+  ],
+  "deleted_tokens": [
+    "Draft"
+  ],
+  "substituted": [
+    {
+      "from": "Draft",
+      "to": "Final"
+    }
+  ],
+  "note": "Text box content lives in w:txbxContent inside document.xml (VML form only, no DrawingML fallback, to avoid the known duplicate-count artefact)."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "p2m-table-row-del",
+  "change_type": "table_row_deleted",
+  "description": "The middle row [middle-one, middle-two] is deleted; all other cell texts identical.",
+  "inserted_tokens": [],
+  "deleted_tokens": [
+    "middle-one",
+    "middle-two"
+  ],
+  "substituted": []
+}

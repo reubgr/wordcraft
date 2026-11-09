@@ -1,0 +1,11 @@
+{
+  "id": "p2m-list-insert",
+  "change_type": "numbered_list_item_inserted",
+  "description": "Numbered list gains one item ('Inserted') between Beta and Gamma; following items renumber (3->4, 4->5 in display).",
+  "inserted_tokens": [
+    "Inserted"
+  ],
+  "deleted_tokens": [],
+  "substituted": [],
+  "note": "Inserted item is a new block; renumbering is a display consequence of shared numbering."
+}

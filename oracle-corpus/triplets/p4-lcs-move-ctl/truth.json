@@ -1,0 +1,40 @@
+{
+  "id": "p4-lcs-move-ctl",
+  "change_type": "block_move_across_lcs_window",
+  "description": "4600 blocks; one-word substitutions in blocks 0 and 4599 (trim zero); record 100 moves from index 100 to index 3900. Token truth counts the move as del+ins of the record's tokens.",
+  "inserted_tokens": [
+    "flagged",
+    "flagged",
+    "Record",
+    "0100:",
+    "the",
+    "archive",
+    "entry",
+    "remains",
+    "nominal",
+    "and",
+    "unchanged."
+  ],
+  "deleted_tokens": [
+    "nominal",
+    "nominal",
+    "Record",
+    "0100:",
+    "the",
+    "archive",
+    "entry",
+    "remains",
+    "nominal",
+    "and",
+    "unchanged."
+  ],
+  "substituted": [],
+  "blocks": 4600,
+  "moved_record": 100,
+  "moved_from_index": 100,
+  "moved_to_index": 3900,
+  "substituted_blocks": [
+    0,
+    4599
+  ]
+}

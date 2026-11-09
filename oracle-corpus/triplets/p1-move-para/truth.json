@@ -1,0 +1,28 @@
+{
+  "id": "p1-move-para",
+  "change_type": "paragraph_reorder",
+  "description": "Paragraphs 2 and 3 swap places (B moves after C); the token multiset is identical, only order changes.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "moved_paragraph_tokens": [
+    "The",
+    "first",
+    "item",
+    "concerned",
+    "the",
+    "timetable",
+    "for",
+    "the",
+    "annual",
+    "audit",
+    "and",
+    "the",
+    "appointment",
+    "of",
+    "the",
+    "reporting",
+    "accountants."
+  ],
+  "note": "Order-only difference. Token-set F1 is vacuous; score via moveFrom/moveTo census and ordered stream comparison."
+}

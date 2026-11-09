@@ -1,0 +1,17 @@
+{
+  "id": "p1-table-cell",
+  "change_type": "table_cell_edit",
+  "description": "One table cell's text changes: 'alpha' -> 'omega' in a 2x2 table; body paragraph identical.",
+  "inserted_tokens": [
+    "omega"
+  ],
+  "deleted_tokens": [
+    "alpha"
+  ],
+  "substituted": [
+    {
+      "from": "alpha",
+      "to": "omega"
+    }
+  ]
+}

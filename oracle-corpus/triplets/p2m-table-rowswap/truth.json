@@ -1,0 +1,13 @@
+{
+  "id": "p2m-table-rowswap",
+  "change_type": "table_row_reorder",
+  "description": "Rows 2 and 3 swap places; every cell text is unchanged, only row order changes.",
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": [],
+  "moved_row_tokens": [
+    "row-two-a",
+    "row-two-b"
+  ],
+  "note": "Order-only difference inside a table."
+}

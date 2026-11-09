@@ -1,0 +1,16 @@
+{
+  "id": "p0-del-word",
+  "change_type": "delete_word",
+  "description": "Single-word deletion mid-sentence: 'revised' removed.",
+  "base_paragraphs": [
+    "The committee reviewed the draft agreement on Tuesday and approved the revised budget for the coming fiscal year."
+  ],
+  "revised_paragraphs": [
+    "The committee reviewed the draft agreement on Tuesday and approved the budget for the coming fiscal year."
+  ],
+  "inserted_tokens": [],
+  "deleted_tokens": [
+    "revised"
+  ],
+  "substituted": []
+}

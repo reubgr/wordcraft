@@ -1,0 +1,16 @@
+{
+  "id": "p0-identical",
+  "change_type": "identical_control",
+  "description": "Base and revised are identical; both systems must emit zero revisions.",
+  "base_paragraphs": [
+    "Counsel confirmed that the filing deadline falls on the last business day of the month.",
+    "No further business was raised, and the meeting adjourned shortly before noon."
+  ],
+  "revised_paragraphs": [
+    "Counsel confirmed that the filing deadline falls on the last business day of the month.",
+    "No further business was raised, and the meeting adjourned shortly before noon."
+  ],
+  "inserted_tokens": [],
+  "deleted_tokens": [],
+  "substituted": []
+}

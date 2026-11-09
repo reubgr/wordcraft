@@ -1,0 +1,12 @@
+{
+  "id": "p1-footnote-change",
+  "change_type": "footnote_text_change",
+  "description": "Footnote text gains one word ('revised'); body text is identical in both documents.",
+  "inserted_tokens": [
+    "revised"
+  ],
+  "deleted_tokens": [],
+  "substituted": [],
+  "part": "word/footnotes.xml",
+  "note": "Revisions, if any, land in the footnotes part of the result."
+}

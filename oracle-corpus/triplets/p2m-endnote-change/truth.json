@@ -1,0 +1,12 @@
+{
+  "id": "p2m-endnote-change",
+  "change_type": "endnote_text_change",
+  "description": "Endnote text gains one word ('revised'); body text identical in both documents.",
+  "inserted_tokens": [
+    "revised"
+  ],
+  "deleted_tokens": [],
+  "substituted": [],
+  "part": "word/endnotes.xml",
+  "note": "Mirror of the Phase-1 footnote pair, on the endnotes part."
+}
