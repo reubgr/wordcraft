@@ -5,7 +5,7 @@ The audit checks declared collection consumption, typed-accessor bypasses and re
 It deliberately does not certify the semantic truth of a declaration; fixtures do that.
 """
 from pathlib import Path
-import argparse, atexit, hashlib, json, os, re, subprocess, sys, tempfile, time
+import argparse, atexit, hashlib, json, os, re, shutil, subprocess, sys, tempfile, time
 from contextlib import ExitStack
 from functools import lru_cache, wraps
 from collections import Counter
@@ -105,18 +105,105 @@ def file_sha256(path):
     return digest.digest()
 
 
-def recognizer_binary(target):
+def build_recognizer_artifact(manifest, target):
+    proc = subprocess.run(
+        [
+            'cargo', 'build', '--locked', '--quiet', '--message-format=json',
+            '--manifest-path', str(manifest), '--target-dir', str(target),
+        ],
+        check=True,
+        stdout=subprocess.PIPE,
+        text=True,
+    )
+    artifact = None
+    for line in proc.stdout.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            msg = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        target_info = msg.get('target') if isinstance(msg, dict) else None
+        if (
+            isinstance(msg, dict)
+            and msg.get('reason') == 'compiler-artifact'
+            and isinstance(target_info, dict)
+            and target_info.get('name') == 'observation-recognizer'
+            and 'bin' in target_info.get('kind', ())
+            and msg.get('executable')
+        ):
+            artifact = msg
+    if artifact is None:
+        raise ValueError('cargo build did not emit a compiler-artifact executable for observation-recognizer')
+    return artifact
+
+
+def _distinct_path(a, b):
+    return os.path.normcase(os.path.abspath(a)) != os.path.normcase(os.path.abspath(b))
+
+
+def recognizer_binary(target, artifact=None):
     # Cargo republishes the public executable even on a warm no-op build. Another
-    # worker can unlink that image during macOS startup. Match its freshly built
-    # bytes to Cargo's stable dependency artifact; never select a pre-build binary.
-    executable=target/'debug'/('observation-recognizer.exe' if os.name=='nt' else 'observation-recognizer')
-    deadline=time.monotonic()+2
+    # worker can unlink that image during macOS startup. Prefer a distinct matching
+    # artifact reported by Cargo or in deps/, and otherwise stage a content-addressed
+    # copy so unlinking the public executable never invalidates our image.
+    default_exec = target / 'debug' / ('observation-recognizer.exe' if os.name == 'nt' else 'observation-recognizer')
+    executable = Path(artifact['executable']) if artifact and artifact.get('executable') else default_exec
+    deadline = time.monotonic() + 2
     while True:
         try:
-            expected=file_sha256(executable)
-            for candidate in sorted((target/'debug/deps').glob('observation_recognizer-*')):
-                if re.fullmatch(r'observation_recognizer-[0-9a-f]+(?:\.exe)?', candidate.name) and file_sha256(candidate)==expected:
-                    return candidate
+            expected = file_sha256(executable)
+            candidates = []
+            if artifact and isinstance(artifact.get('filenames'), list):
+                for fn in artifact['filenames']:
+                    candidate = Path(fn)
+                    if (
+                        candidate.suffix.lower() not in {'.d', '.rlib', '.rmeta', '.o', '.pdb', '.lib', '.exp'}
+                        and _distinct_path(candidate, executable)
+                    ):
+                        candidates.append(candidate)
+            deps_dir = executable.parent / 'deps'
+            if deps_dir.is_dir():
+                for candidate in sorted(deps_dir.glob('observation*recognizer-*')):
+                    if (
+                        re.fullmatch(r'observation[_-]recognizer-[0-9a-f]+(?:\.exe)?', candidate.name)
+                        and _distinct_path(candidate, executable)
+                        and candidate not in candidates
+                    ):
+                        candidates.append(candidate)
+            for candidate in candidates:
+                try:
+                    if file_sha256(candidate) == expected:
+                        return candidate
+                except FileNotFoundError:
+                    continue
+            deps_dir.mkdir(parents=True, exist_ok=True)
+            staged = deps_dir / f'observation-recognizer-{expected.hex()}{executable.suffix}'
+            try:
+                if file_sha256(staged) == expected:
+                    return staged
+            except FileNotFoundError:
+                pass
+            tmp = deps_dir / f'.observation-recognizer-{os.getpid()}-{time.monotonic_ns()}{executable.suffix}.tmp'
+            try:
+                shutil.copy2(executable, tmp)
+                if os.name != 'nt':
+                    os.chmod(tmp, 0o755)
+                try:
+                    os.replace(tmp, staged)
+                except PermissionError:
+                    if file_sha256(staged) == expected:
+                        return staged
+                    raise
+            finally:
+                try:
+                    if tmp.exists():
+                        tmp.unlink()
+                except OSError:
+                    pass
+            if file_sha256(staged) == expected:
+                return staged
         except FileNotFoundError:
             # A concurrent warm build may briefly remove the public alias.
             pass
@@ -137,10 +224,9 @@ def recognize(sources):
         manifest = Path(__file__).parent / 'recognizer/Cargo.toml'
         target = root / 'target/observation-recognizer'
         build_start=time.perf_counter()
-        subprocess.run(['cargo', 'build', '--locked', '--quiet', '--manifest-path', str(manifest),
-                        '--target-dir', str(target)], check=True)
+        artifact = build_recognizer_artifact(manifest, target)
         if _TIMINGS: print(f'recognizer build: {time.perf_counter()-build_start:.3f}s', file=sys.stderr)
-        binary=recognizer_binary(target)
+        binary=recognizer_binary(target, artifact)
         if _TIMINGS: print(f'recognizer artifact: {binary.name}', file=sys.stderr)
         _RECOGNIZER = subprocess.Popen([str(binary)],
                                       stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True)
@@ -860,10 +946,10 @@ def shard_cases(mutations, controls):
 def artifact_self_test():
     # A later Cargo publication must neither remove our selected image nor make
     # us execute an older artifact, even if that artifact sorts first.
+    suffix='.exe' if os.name=='nt' else ''
     with tempfile.TemporaryDirectory() as directory:
         target=Path(directory)
         deps=target/'debug/deps'; deps.mkdir(parents=True)
-        suffix='.exe' if os.name=='nt' else ''
         alias=target/'debug'/('observation-recognizer'+suffix)
         stale=deps/('observation_recognizer-0000000000000000'+suffix)
         fresh=deps/('observation_recognizer-1111111111111111'+suffix)
@@ -871,6 +957,35 @@ def artifact_self_test():
         selected=recognizer_binary(target)
         alias.unlink()
         assert file_sha256(selected)==hashlib.sha256(b'fresh build').digest(), 'recognizer image changed with its public alias'
+    # Hyphenated compiler-artifact filenames (or custom target subdirs) must resolve without falling back to stale deps.
+    with tempfile.TemporaryDirectory() as directory:
+        target=Path(directory)
+        deps=target/'custom-target/debug/deps'; deps.mkdir(parents=True)
+        alias=target/'custom-target/debug'/('observation-recognizer'+suffix)
+        stale=deps/('observation_recognizer-0000000000000000'+suffix)
+        fresh=deps/('observation-recognizer-1111111111111111'+suffix)
+        alias.write_bytes(b'hyphenated build'); stale.write_bytes(b'old build'); fresh.write_bytes(b'hyphenated build')
+        artifact={'reason':'compiler-artifact','target':{'name':'observation-recognizer','kind':['bin']},
+                  'executable':str(alias),'filenames':[str(alias), str(fresh)]}
+        selected=recognizer_binary(target, artifact)
+        assert _distinct_path(selected, alias), 'selected recognizer must be distinct from the public alias'
+        alias.unlink()
+        assert file_sha256(selected)==hashlib.sha256(b'hyphenated build').digest(), 'hyphenated compiler-artifact image changed with its public alias'
+    # Hosted / build-dir layout: Cargo emits executable in compiler-artifact with no duplicate binary under debug/deps.
+    with tempfile.TemporaryDirectory() as directory:
+        target=Path(directory)
+        deps=target/'debug/deps'; deps.mkdir(parents=True)
+        alias=target/'debug'/('observation-recognizer'+suffix)
+        stale=deps/('observation_recognizer-0000000000000000'+suffix)
+        alias.write_bytes(b'hosted build'); stale.write_bytes(b'old build')
+        artifact={'reason':'compiler-artifact','target':{'name':'observation-recognizer','kind':['bin']},
+                  'executable':str(alias),'filenames':[str(alias)]}
+        selected=recognizer_binary(target, artifact)
+        assert _distinct_path(selected, alias), 'staged recognizer must be distinct from the public alias'
+        if os.name != 'nt':
+            assert (selected.stat().st_mode & 0o111) != 0, 'staged recognizer must retain executable permissions'
+        alias.unlink()
+        assert file_sha256(selected)==hashlib.sha256(b'hosted build').digest(), 'staged recognizer image changed with its public alias'
 
 
 def case_pool(rows, mutations, controls, jobs, timings):
