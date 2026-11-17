@@ -518,13 +518,15 @@ impl<'a> SideProps<'a> {
 
     /// The formatting of the source run a token came from: the run holding the token's first
     /// byte, with the revision metadata stripped. `ins`, `del` and `fmt_change` are indices into
-    /// the *source* document's own revision table, and the rebuilt paragraph lives in the result
-    /// document, whose table is a different one, so a source mark can never be carried across;
-    /// `word_diff` stamps the compare's own `ins`/`del` on the segments it marks. The consequence
-    /// is plain: a pre-existing pending revision inside a changed paragraph (say another author's
-    /// deletion) is superseded by the compare result rather than preserved. The hyperlink is
-    /// kept, because Reject restores it on a deleted run (at token granularity: the link is taken
-    /// from the token's first byte, so a token that starts unlinked can lose a mid-token link).
+    /// the *source* document's own revision table. For the revised side that is a different
+    /// table from the result document's, so a revised-side mark can never be carried across.
+    /// The result is `s.doc`, the original document, so original-side indices would still be
+    /// valid there; they are stripped anyway, and that is what turns another author's pending
+    /// deletion inside a changed paragraph into plain text (or re-attributes it to the compare
+    /// author) instead of preserving it. `word_diff` stamps the compare's own `ins`/`del` on
+    /// the segments it marks. The hyperlink is kept, because Reject restores it on a deleted
+    /// run (at token granularity: the link is taken from the token's first byte, so a token
+    /// that starts unlinked can lose a mid-token link).
     fn props_of(&mut self, t: &Tok<'_>) -> CharProps {
         let off = match t {
             Tok::Text(_, range) | Tok::Obj(_, range) => range.start,
