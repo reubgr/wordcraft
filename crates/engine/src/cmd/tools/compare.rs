@@ -106,7 +106,9 @@ pub(super) fn compare(s: &mut Session, v: &Value) -> CmdResult {
         }
         for part in frag.parts.values_mut() {
             for b in &mut part.blocks {
-                remap_block_media(Arc::make_mut(b), &mut |k| adopt_media_key(&mut s.doc, &mut raw_media, &mut media_map, k));
+                let blk = Arc::make_mut(b);
+                strip_block_text_revisions(blk);
+                remap_block_media(blk, &mut |k| adopt_media_key(&mut s.doc, &mut raw_media, &mut media_map, k));
             }
         }
         // The revised document's text boxes get stories of their own in the result, so its
@@ -185,40 +187,194 @@ fn has_next_para_in_doc(doc: &Document, story: StoryRef, path: &wordcraft_doc::P
     matches!(doc.block(story, &path.with_last(path.last().saturating_add(1))), Some(Block::Para(_)))
 }
 
-/// Accepts pre-existing tracked deletions in a single paragraph: removes deleted runs (recording
-/// any `NoteRef` IDs whose reference was deleted from outside that note) and collapses a deleted
-/// paragraph mark with the same semantics as `review.acceptAll`.
-fn accept_para_deletions(doc: &mut Document, story: StoryRef, path: &wordcraft_doc::Path, deleted_notes: &mut std::collections::HashSet<u32>) {
+/// Returns paths of every paragraph in `story` in document order, walking nested tables
+/// iteratively to full depth (without `Document::para_paths`'s 16-level cap).
+fn story_para_paths(doc: &Document, story: StoryRef) -> Vec<wordcraft_doc::Path> {
+    let Some(root) = doc.story(story) else { return Vec::new() };
+    let mut out = Vec::new();
+    let mut stack: Vec<(Vec<u32>, &[Arc<Block>], usize)> = vec![(Vec::new(), root, 0)];
+    while let Some((prefix, blocks, idx)) = stack.last_mut() {
+        let Some(blk) = blocks.get(*idx) else {
+            stack.pop();
+            continue;
+        };
+        let cur = *idx as u32;
+        *idx += 1;
+        match &**blk {
+            Block::Para(_) => {
+                let mut path = prefix.clone();
+                path.push(cur);
+                out.push(wordcraft_doc::Path(path));
+            }
+            Block::Table(t) => {
+                let base = prefix.clone();
+                for (r, row) in t.rows.iter().enumerate().rev() {
+                    for (c, cell) in row.cells.iter().enumerate().rev() {
+                        let mut cell_prefix = base.clone();
+                        cell_prefix.push(cur);
+                        cell_prefix.push(r as u32);
+                        cell_prefix.push(c as u32);
+                        stack.push((cell_prefix, &cell.blocks, 0));
+                    }
+                }
+            }
+        }
+    }
+    out
+}
+
+/// Calls `f` on every paragraph inside `blocks` (walking nested tables iteratively to full depth).
+fn for_each_para(blocks: &[Arc<Block>], mut f: impl FnMut(&Paragraph)) {
+    let mut stack: Vec<&Block> = blocks.iter().rev().map(|b| &**b).collect();
+    while let Some(blk) = stack.pop() {
+        match blk {
+            Block::Para(p) => f(p),
+            Block::Table(t) => {
+                for row in t.rows.iter().rev() {
+                    for cell in row.cells.iter().rev() {
+                        stack.extend(cell.blocks.iter().rev().map(|b| &**b));
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// Records note and text-box story IDs referenced by `root` (walking nested groups iteratively),
+/// skipping self-references to `own_part`.
+fn collect_object_story_refs(
+    root: &InlineObject,
+    own_part: Option<u32>,
+    notes: &mut std::collections::HashSet<u32>,
+    boxes: &mut std::collections::HashSet<u32>,
+) {
+    let mut todo = vec![root];
+    while let Some(obj) = todo.pop() {
+        match obj {
+            InlineObject::NoteRef { id, .. } if own_part != Some(*id) => {
+                notes.insert(*id);
+            }
+            InlineObject::Shape { story: Some(id), .. } if own_part != Some(*id) => {
+                boxes.insert(*id);
+            }
+            InlineObject::Group { children, .. } => {
+                for child in children {
+                    todo.push(&child.obj);
+                }
+            }
+            _ => {}
+        }
+    }
+}
+
+/// Compacts `para` in a single linear pass, removing every tracked-deleted run along with its text
+/// bytes and covered inline objects, recording any deleted note or text-box story IDs, and merging
+/// adjacent equal surviving runs. Returns `true` if any deleted run was removed.
+fn compact_deleted_runs(
+    para: &mut Paragraph,
+    own_part: Option<u32>,
+    deleted_notes: &mut std::collections::HashSet<u32>,
+    deleted_boxes: &mut std::collections::HashSet<u32>,
+) -> bool {
+    if !para.runs.iter().any(|r| r.props.del.is_some()) {
+        return false;
+    }
+    let text_len = para.text.len();
+    let had_text = text_len > 0;
+    let first_props = para.runs.iter().find(|r| r.len > 0).map(|r| r.props.clone());
+    let has_objects = !para.objects.is_empty();
+
+    let mut new_text = String::with_capacity(text_len);
+    let mut new_runs: Vec<wordcraft_doc::para::Run> = Vec::with_capacity(para.runs.len());
+    let mut new_objects: Vec<InlineObject> = Vec::with_capacity(para.objects.len());
+    let mut old_objects = std::mem::take(&mut para.objects).into_iter();
+    let old_runs = std::mem::take(&mut para.runs);
+
+    let mut pos = 0usize;
+    for run in old_runs {
+        let mut end = pos.saturating_add(run.len).min(text_len);
+        while end < text_len && !para.text.is_char_boundary(end) {
+            end += 1;
+        }
+        if end <= pos {
+            continue;
+        }
+        let slice = para.text.get(pos..end).unwrap_or_default();
+        let obj_count = if has_objects { slice.chars().filter(|&c| c == OBJ).count() } else { 0 };
+        if run.props.del.is_some() {
+            for _ in 0..obj_count {
+                if let Some(obj) = old_objects.next() {
+                    collect_object_story_refs(&obj, own_part, deleted_notes, deleted_boxes);
+                }
+            }
+        } else {
+            new_text.push_str(slice);
+            for _ in 0..obj_count {
+                if let Some(obj) = old_objects.next() {
+                    new_objects.push(obj);
+                }
+            }
+            let len = end - pos;
+            match new_runs.last_mut() {
+                Some(last) if last.props == run.props => last.len += len,
+                _ => new_runs.push(wordcraft_doc::para::Run { len, props: run.props }),
+            }
+        }
+        pos = end;
+    }
+    if pos < text_len {
+        let slice = para.text.get(pos..text_len).unwrap_or_default();
+        let obj_count = if has_objects { slice.chars().filter(|&c| c == OBJ).count() } else { 0 };
+        new_text.push_str(slice);
+        for _ in 0..obj_count {
+            if let Some(obj) = old_objects.next() {
+                new_objects.push(obj);
+            }
+        }
+        let tail_len = text_len - pos;
+        match new_runs.last_mut() {
+            Some(last) => last.len += tail_len,
+            None => new_runs.push(wordcraft_doc::para::Run { len: tail_len, props: para.mark.clone() }),
+        }
+    }
+    new_objects.extend(old_objects);
+
+    if had_text && new_text.is_empty() {
+        let revisions = (para.mark.ins, para.mark.del, para.mark.fmt_change.clone());
+        let mut mark = first_props.unwrap_or_else(|| para.mark.clone());
+        (mark.ins, mark.del, mark.fmt_change) = revisions;
+        para.mark = mark;
+    }
+    para.text = new_text;
+    para.runs = new_runs;
+    para.objects = new_objects;
+    para.touch();
+    true
+}
+
+/// Accepts pre-existing tracked deletions in a single paragraph: compacts deleted runs in one pass
+/// (recording any deleted `NoteRef` or `TextBox` story IDs) and collapses a deleted paragraph mark
+/// with the same semantics as `review.acceptAll`.
+fn accept_para_deletions(
+    doc: &mut Document,
+    story: StoryRef,
+    path: &wordcraft_doc::Path,
+    deleted_notes: &mut std::collections::HashSet<u32>,
+    deleted_boxes: &mut std::collections::HashSet<u32>,
+) {
     let own_part = match story {
         StoryRef::Part(id) => Some(id),
         StoryRef::Body => None,
     };
-    let (ranges, mark_del) = {
+    let (has_del_runs, mark_del) = {
         let Some(p) = doc.para(story, path) else { return };
-        let ranges: Vec<std::ops::Range<usize>> = p.run_ranges().filter(|(_, c)| c.del.is_some()).map(|(r, _)| r).collect();
-        if !ranges.is_empty() {
-            for (off, obj) in p.objects_with_offsets() {
-                if let InlineObject::NoteRef { id, .. } = obj
-                    && own_part != Some(*id)
-                    && ranges.iter().any(|r| r.contains(&off))
-                {
-                    deleted_notes.insert(*id);
-                }
-            }
-        }
-        (ranges, p.mark.del.is_some())
+        (p.runs.iter().any(|r| r.props.del.is_some()), p.mark.del.is_some())
     };
-    if ranges.is_empty() && !mark_del {
+    if !has_del_runs && !mark_del {
         return;
     }
-    if !ranges.is_empty()
-        && let Ok(para) = doc.para_mut(story, path)
-    {
-        for r in ranges.into_iter().rev() {
-            let _ = para.delete(r.start, r.end);
-        }
-        para.normalize();
-        para.touch();
+    if has_del_runs && let Ok(para) = doc.para_mut(story, path) {
+        compact_deleted_runs(para, own_part, deleted_notes, deleted_boxes);
     }
     if !mark_del {
         return;
@@ -277,7 +433,11 @@ fn block_has_deletions(b: &Block) -> bool {
 }
 
 /// Accepts tracked deletions in loose block lists outside stories (such as note separators).
-fn accept_loose_block_deletions(blocks: &mut wordcraft_doc::Blocks) {
+fn accept_loose_block_deletions(
+    blocks: &mut wordcraft_doc::Blocks,
+    deleted_notes: &mut std::collections::HashSet<u32>,
+    deleted_boxes: &mut std::collections::HashSet<u32>,
+) {
     for b in blocks.iter_mut() {
         if !block_has_deletions(b) {
             continue;
@@ -286,25 +446,143 @@ fn accept_loose_block_deletions(blocks: &mut wordcraft_doc::Blocks) {
         while let Some(blk) = stack.pop() {
             match blk {
                 Block::Para(p) => {
-                    let ranges: Vec<std::ops::Range<usize>> = p.run_ranges().filter(|(_, c)| c.del.is_some()).map(|(r, _)| r).collect();
-                    let mark_del = p.mark.del.is_some();
-                    if ranges.is_empty() && !mark_del {
-                        continue;
+                    let compacted = compact_deleted_runs(p, None, deleted_notes, deleted_boxes);
+                    if p.mark.del.take().is_some() && !compacted {
+                        p.touch();
                     }
-                    for r in ranges.into_iter().rev() {
-                        let _ = p.delete(r.start, r.end);
-                    }
-                    if mark_del {
-                        p.mark.del = None;
-                    }
-                    p.normalize();
-                    p.touch();
                 }
                 Block::Table(t) => {
                     for cell in t.rows.iter_mut().flat_map(|r| r.cells.iter_mut()) {
                         stack.extend(cell.blocks.iter_mut().map(Arc::make_mut));
                     }
                 }
+            }
+        }
+    }
+}
+
+/// Removes note and text-box parts whose reference paths were severed by tracked deletions when no
+/// surviving root can still reach them, while preserving shared parts and unrelated previously
+/// unreferenced parts.
+fn prune_deleted_story_parts(doc: &mut Document, deleted_notes: std::collections::HashSet<u32>, deleted_boxes: std::collections::HashSet<u32>) {
+    if deleted_notes.is_empty() && deleted_boxes.is_empty() {
+        return;
+    }
+    let is_note = |doc: &Document, id: u32| {
+        doc.parts.get(&id).is_some_and(|p| matches!(p.kind, wordcraft_doc::PartKind::Footnote | wordcraft_doc::PartKind::Endnote))
+    };
+    let is_box = |doc: &Document, id: u32| doc.parts.get(&id).is_some_and(|p| p.kind == wordcraft_doc::PartKind::TextBox);
+
+    // 1. Expand candidate notes/boxes transitively through removed story anchors (e.g. a deleted
+    //    text box holding a footnote reference or a nested text box).
+    let mut candidate_notes: std::collections::HashSet<u32> = deleted_notes.into_iter().filter(|&id| is_note(doc, id)).collect();
+    let mut candidate_boxes: std::collections::HashSet<u32> = deleted_boxes.into_iter().filter(|&id| is_box(doc, id)).collect();
+    let mut expand_queue: Vec<u32> = candidate_notes.iter().chain(candidate_boxes.iter()).copied().collect();
+    while let Some(part_id) = expand_queue.pop() {
+        let Some(part) = doc.parts.get(&part_id) else { continue };
+        let mut found_notes = std::collections::HashSet::new();
+        let mut found_boxes = std::collections::HashSet::new();
+        for_each_para(&part.blocks, |p| {
+            for o in &p.objects {
+                collect_object_story_refs(o, Some(part_id), &mut found_notes, &mut found_boxes);
+            }
+        });
+        for nid in found_notes {
+            if is_note(doc, nid) && candidate_notes.insert(nid) {
+                expand_queue.push(nid);
+            }
+        }
+        for bid in found_boxes {
+            if is_box(doc, bid) && candidate_boxes.insert(bid) {
+                expand_queue.push(bid);
+            }
+        }
+    }
+    if candidate_notes.is_empty() && candidate_boxes.is_empty() {
+        return;
+    }
+
+    // 2. Compute all parts reachable from surviving roots (Body, Headers, Footers, Comments,
+    //    note separators, and non-candidate notes). Detached TextBoxes are never roots.
+    let mut reachable: std::collections::HashSet<u32> = std::collections::HashSet::new();
+    let mut bfs_stories: Vec<StoryRef> = vec![StoryRef::Body];
+    for (&id, part) in &doc.parts {
+        let is_root = match part.kind {
+            wordcraft_doc::PartKind::Header | wordcraft_doc::PartKind::Footer | wordcraft_doc::PartKind::Comment => true,
+            wordcraft_doc::PartKind::Footnote | wordcraft_doc::PartKind::Endnote => !candidate_notes.contains(&id),
+            wordcraft_doc::PartKind::TextBox => false,
+        };
+        if is_root {
+            reachable.insert(id);
+            bfs_stories.push(StoryRef::Part(id));
+        }
+    }
+    let mut seed_notes = std::collections::HashSet::new();
+    let mut seed_boxes = std::collections::HashSet::new();
+    for sep in [&doc.footnote_separators, &doc.endnote_separators] {
+        for blocks in [&sep.separator, &sep.continuation_separator, &sep.continuation_notice].into_iter().flatten() {
+            for_each_para(blocks, |p| {
+                for o in &p.objects {
+                    collect_object_story_refs(o, None, &mut seed_notes, &mut seed_boxes);
+                }
+            });
+        }
+    }
+    for nid in seed_notes {
+        if is_note(doc, nid) && reachable.insert(nid) {
+            bfs_stories.push(StoryRef::Part(nid));
+        }
+    }
+    for bid in seed_boxes {
+        if is_box(doc, bid) && reachable.insert(bid) {
+            bfs_stories.push(StoryRef::Part(bid));
+        }
+    }
+
+    let mut head = 0usize;
+    while let Some(story) = bfs_stories.get(head).copied() {
+        head += 1;
+        let own_part = match story {
+            StoryRef::Part(id) => Some(id),
+            StoryRef::Body => None,
+        };
+        let Some(blocks) = doc.story(story) else { continue };
+        let mut found_notes = std::collections::HashSet::new();
+        let mut found_boxes = std::collections::HashSet::new();
+        for_each_para(blocks, |p| {
+            for o in &p.objects {
+                collect_object_story_refs(o, own_part, &mut found_notes, &mut found_boxes);
+            }
+        });
+        for nid in found_notes {
+            if is_note(doc, nid) && reachable.insert(nid) {
+                bfs_stories.push(StoryRef::Part(nid));
+            }
+        }
+        for bid in found_boxes {
+            if is_box(doc, bid) && reachable.insert(bid) {
+                bfs_stories.push(StoryRef::Part(bid));
+            }
+        }
+    }
+
+    // 3. Drop unreachable candidate notes and text boxes, clearing dangling text-box chain links.
+    for id in candidate_notes {
+        if !reachable.contains(&id) {
+            doc.parts.remove(&id);
+        }
+    }
+    let mut removed_box = false;
+    for id in candidate_boxes {
+        if !reachable.contains(&id) && doc.parts.remove(&id).is_some() {
+            removed_box = true;
+        }
+    }
+    if removed_box {
+        let live_ids: std::collections::HashSet<u32> = doc.parts.keys().copied().collect();
+        for part in doc.parts.values_mut() {
+            if part.body.next.is_some_and(|n| !live_ids.contains(&n)) {
+                part.body.next = None;
             }
         }
     }
@@ -317,43 +595,19 @@ fn accept_loose_block_deletions(blocks: &mut wordcraft_doc::Blocks) {
 /// the comparison output as live text or spurious insertions/deletions.
 fn accept_tracked_deletions(doc: &mut Document) {
     let mut deleted_notes = std::collections::HashSet::new();
+    let mut deleted_boxes = std::collections::HashSet::new();
     let stories: Vec<StoryRef> = std::iter::once(StoryRef::Body).chain(doc.parts.keys().map(|k| StoryRef::Part(*k))).collect();
     for story in stories {
-        for path in doc.para_paths(story).into_iter().rev() {
-            accept_para_deletions(doc, story, &path, &mut deleted_notes);
+        for path in story_para_paths(doc, story).into_iter().rev() {
+            accept_para_deletions(doc, story, &path, &mut deleted_notes, &mut deleted_boxes);
         }
     }
     for sep in [&mut doc.footnote_separators, &mut doc.endnote_separators] {
         for blocks in [&mut sep.separator, &mut sep.continuation_separator, &mut sep.continuation_notice].into_iter().flatten() {
-            accept_loose_block_deletions(blocks);
+            accept_loose_block_deletions(blocks, &mut deleted_notes, &mut deleted_boxes);
         }
     }
-    if !deleted_notes.is_empty() {
-        let mut live_notes = std::collections::HashSet::new();
-        for story in std::iter::once(StoryRef::Body).chain(doc.parts.keys().map(|k| StoryRef::Part(*k))) {
-            let own_part = match story {
-                StoryRef::Part(id) => Some(id),
-                StoryRef::Body => None,
-            };
-            for path in doc.para_paths(story) {
-                let Some(p) = doc.para(story, &path) else { continue };
-                for o in &p.objects {
-                    if let InlineObject::NoteRef { id, .. } = o
-                        && own_part != Some(*id)
-                    {
-                        live_notes.insert(*id);
-                    }
-                }
-            }
-        }
-        for id in deleted_notes {
-            if !live_notes.contains(&id)
-                && doc.parts.get(&id).is_some_and(|p| matches!(p.kind, wordcraft_doc::PartKind::Footnote | wordcraft_doc::PartKind::Endnote))
-            {
-                doc.parts.remove(&id);
-            }
-        }
-    }
+    prune_deleted_story_parts(doc, deleted_notes, deleted_boxes);
     doc.ensure_nonempty();
 }
 
@@ -439,14 +693,96 @@ fn diff_notes(
     }
     for &new_id in &notes.inserted {
         if let Some(part) = doc.parts.get_mut(&new_id) {
-            part.blocks = part.blocks.iter().map(|b| Arc::new(mark_block(b, &|c| c.ins = Some(ctx.ins)))).collect();
+            part.blocks = part
+                .blocks
+                .iter()
+                .map(|b| {
+                    Arc::new(mark_block(b, &|c| {
+                        c.del = None;
+                        c.ins = Some(ctx.ins);
+                    }))
+                })
+                .collect();
         }
     }
     for &orig_id in &notes.deleted {
         if let Some(part) = doc.parts.get_mut(&orig_id) {
-            part.blocks = part.blocks.iter().map(|b| Arc::new(mark_block(b, &|c| c.del = Some(ctx.del)))).collect();
+            part.blocks = part
+                .blocks
+                .iter()
+                .map(|b| {
+                    Arc::new(mark_block(b, &|c| {
+                        c.ins = None;
+                        c.del = Some(ctx.del);
+                    }))
+                })
+                .collect();
         }
     }
+}
+
+/// Clears text insertion/deletion revision indices from a paragraph's runs and paragraph mark,
+/// normalizing runs if any index was cleared. Used on equal-block paths where revised runs are
+/// cloned without going through `word_diff`, so foreign `ins`/`del` indices never collide with
+/// the destination revision table or cause `review.rejectAll` to erase unchanged text.
+fn strip_para_text_revisions(p: &mut Paragraph) {
+    let mut changed = false;
+    for r in &mut p.runs {
+        changed |= r.props.ins.take().is_some();
+        changed |= r.props.del.take().is_some();
+    }
+    changed |= p.mark.ins.take().is_some();
+    changed |= p.mark.del.take().is_some();
+    if changed {
+        p.normalize();
+        p.touch();
+    }
+}
+
+/// Whether `b` (or any nested table cell within it) carries any `ins` or `del` revision index.
+fn block_has_text_revisions(b: &Block) -> bool {
+    let mut stack = vec![b];
+    while let Some(blk) = stack.pop() {
+        match blk {
+            Block::Para(p) => {
+                if p.mark.ins.is_some() || p.mark.del.is_some() || p.runs.iter().any(|r| r.props.ins.is_some() || r.props.del.is_some()) {
+                    return true;
+                }
+            }
+            Block::Table(t) => {
+                for cell in t.rows.iter().flat_map(|r| r.cells.iter()) {
+                    stack.extend(cell.blocks.iter().map(|x| &**x));
+                }
+            }
+        }
+    }
+    false
+}
+
+/// Clears text insertion/deletion revision indices from every paragraph in `b` (including nested
+/// tables iteratively to full depth).
+fn strip_block_text_revisions(b: &mut Block) {
+    let mut stack = vec![b];
+    while let Some(blk) = stack.pop() {
+        match blk {
+            Block::Para(p) => strip_para_text_revisions(p),
+            Block::Table(t) => {
+                for cell in t.rows.iter_mut().flat_map(|r| r.cells.iter_mut()) {
+                    stack.extend(cell.blocks.iter_mut().map(Arc::make_mut));
+                }
+            }
+        }
+    }
+}
+
+/// Returns `b` with any `ins`/`del` revision indices cleared, avoiding a deep clone when none exist.
+fn strip_arc_block_text_revisions(b: &Arc<Block>) -> Arc<Block> {
+    if !block_has_text_revisions(b) {
+        return b.clone();
+    }
+    let mut blk = (**b).clone();
+    strip_block_text_revisions(&mut blk);
+    Arc::new(blk)
 }
 
 /// Clears tracked revision metadata from a block tree so foreign revision indices from `revised`
@@ -592,10 +928,12 @@ fn diff_blocks(doc: &mut Document, old: &[Arc<Block>], new: &[Arc<Block>], ctx: 
                         ctx.changes = ctx.changes.saturating_add(1);
                     } else {
                         let mut p = pb.clone();
-                        if ctx.opts.formatting && pa.text == pb.text {
+                        strip_para_text_revisions(&mut p);
+                        if ctx.opts.formatting && pa.text == p.text {
                             let before = doc.revisions.len();
+                            let rev_before = p.rev;
                             crate::cmd::fmt_revisions::compare_formatting(pa, &mut p, &mut doc.revisions, ctx.author, ctx.date);
-                            if doc.revisions.len() > before || p != *pb {
+                            if doc.revisions.len() > before || p.rev != rev_before {
                                 ctx.changes = ctx.changes.saturating_add(1);
                             }
                         }
@@ -604,7 +942,7 @@ fn diff_blocks(doc: &mut Document, old: &[Arc<Block>], new: &[Arc<Block>], ctx: 
                 } else if let (Some(Block::Table(ta)), Some(Block::Table(tb))) = (a.map(|x| &**x), b.map(|x| &**x)) {
                     diff_matched_table(doc, (a, ta), (b, tb), ctx, depth, &mut out);
                 } else if let Some(x) = b.or(a) {
-                    out.push(x.clone());
+                    out.push(strip_arc_block_text_revisions(x));
                 }
                 i += 1;
                 j += 1;
@@ -622,10 +960,16 @@ fn diff_blocks(doc: &mut Document, old: &[Arc<Block>], new: &[Arc<Block>], ctx: 
                         (Some(Block::Para(pa)), Some(Block::Para(pb))) => out.push(para_block(word_diff(doc, pa, pb, ctx))),
                         _ => {
                             if let Some(x) = a {
-                                out.push(Arc::new(mark_block(x, &|c| c.del = Some(ctx.del))));
+                                out.push(Arc::new(mark_block(x, &|c| {
+                                    c.ins = None;
+                                    c.del = Some(ctx.del);
+                                })));
                             }
                             if let Some(x) = b {
-                                out.push(Arc::new(mark_block(x, &|c| c.ins = Some(ctx.ins))));
+                                out.push(Arc::new(mark_block(x, &|c| {
+                                    c.del = None;
+                                    c.ins = Some(ctx.ins);
+                                })));
                             }
                         }
                     }
@@ -1500,13 +1844,13 @@ fn diff_matched_table(
 ) {
     if ta == tb || table_media_keys(ta) == table_media_keys(tb) {
         if let Some(x) = b.or(a) {
-            out.push(x.clone());
+            out.push(strip_arc_block_text_revisions(x));
         }
     } else if depth < wordcraft_doc::table::MAX_TABLE_DEPTH && same_table_cells(ta, tb, ctx) {
         out.push(Arc::new(Block::Table(diff_table(doc, ta, tb, ctx, depth))));
     } else {
         if let Some(x) = a.or(b) {
-            out.push(x.clone());
+            out.push(strip_arc_block_text_revisions(x));
         }
         *ctx.table_fallbacks = ctx.table_fallbacks.saturating_add(1);
     }
@@ -1607,6 +1951,12 @@ fn diff_table(
                 cb.blocks = diff_blocks(doc, &ca.blocks, &cb.blocks, ctx, depth + 1);
                 if cb.blocks.is_empty() {
                     cb.blocks.push(para_block(Paragraph::new()));
+                }
+            } else {
+                for blk in &mut cb.blocks {
+                    if block_has_text_revisions(blk) {
+                        strip_block_text_revisions(Arc::make_mut(blk));
+                    }
                 }
             }
         }
