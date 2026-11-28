@@ -93,6 +93,8 @@ pub(super) fn compare(s: &mut Session, v: &Value) -> CmdResult {
     let date = crate::cmd::now_iso();
     let mut budget = MAX_COMPARE_CELLS;
     let mut revised = revised;
+    accept_tracked_deletions(&mut s.doc);
+    accept_tracked_deletions(&mut revised);
     let mut raw_media = std::mem::take(&mut revised.media);
     let mut media_map = BTreeMap::new();
     let notes = prepare_notes(&mut s.doc, &mut revised, &mut raw_media, &mut media_map, &opts, compare_notes);
@@ -176,6 +178,183 @@ pub(super) fn compare(s: &mut Session, v: &Value) -> CmdResult {
         "notHonoured": not_honoured,
         "characterFallback": char_fallbacks,
     }))
+}
+
+/// Whether the block immediately following `path` in the same container is a paragraph.
+fn has_next_para_in_doc(doc: &Document, story: StoryRef, path: &wordcraft_doc::Path) -> bool {
+    matches!(doc.block(story, &path.with_last(path.last().saturating_add(1))), Some(Block::Para(_)))
+}
+
+/// Accepts pre-existing tracked deletions in a single paragraph: removes deleted runs (recording
+/// any `NoteRef` IDs whose reference was deleted from outside that note) and collapses a deleted
+/// paragraph mark with the same semantics as `review.acceptAll`.
+fn accept_para_deletions(doc: &mut Document, story: StoryRef, path: &wordcraft_doc::Path, deleted_notes: &mut std::collections::HashSet<u32>) {
+    let own_part = match story {
+        StoryRef::Part(id) => Some(id),
+        StoryRef::Body => None,
+    };
+    let (ranges, mark_del) = {
+        let Some(p) = doc.para(story, path) else { return };
+        let ranges: Vec<std::ops::Range<usize>> = p.run_ranges().filter(|(_, c)| c.del.is_some()).map(|(r, _)| r).collect();
+        if !ranges.is_empty() {
+            for (off, obj) in p.objects_with_offsets() {
+                if let InlineObject::NoteRef { id, .. } = obj
+                    && own_part != Some(*id)
+                    && ranges.iter().any(|r| r.contains(&off))
+                {
+                    deleted_notes.insert(*id);
+                }
+            }
+        }
+        (ranges, p.mark.del.is_some())
+    };
+    if ranges.is_empty() && !mark_del {
+        return;
+    }
+    if !ranges.is_empty()
+        && let Ok(para) = doc.para_mut(story, path)
+    {
+        for r in ranges.into_iter().rev() {
+            let _ = para.delete(r.start, r.end);
+        }
+        para.normalize();
+        para.touch();
+    }
+    if !mark_del {
+        return;
+    }
+    let has_next = has_next_para_in_doc(doc, story, path);
+    let (is_empty, has_section) = doc.para(story, path).map(|p| (p.is_empty(), p.section.is_some())).unwrap_or((false, false));
+    if has_next {
+        if story == StoryRef::Body && path.0.len() == 1 && is_empty && has_section {
+            doc.remove_section_break(path.last());
+        }
+        let removable_empty = doc.para(story, path).is_some_and(|p| p.is_empty() && p.section.is_none());
+        if removable_empty {
+            if doc.remove_block(story, path).is_ok() {
+                return;
+            }
+        } else {
+            let next = path.with_last(path.last().saturating_add(1));
+            let len = doc.para(story, path).map(|p| p.len()).unwrap_or(0);
+            let next_revs = doc.para(story, &next).map(|p| (p.mark.ins, p.mark.del)).unwrap_or_default();
+            if doc
+                .delete_range(&wordcraft_doc::Pos { story, path: path.clone(), off: len }, &wordcraft_doc::Pos { story, path: next, off: 0 })
+                .is_ok()
+            {
+                if let Ok(p) = doc.para_mut(story, path) {
+                    (p.mark.ins, p.mark.del) = next_revs;
+                    p.touch();
+                }
+                return;
+            }
+        }
+    }
+    if let Ok(para) = doc.para_mut(story, path) {
+        para.mark.del = None;
+        para.touch();
+    }
+}
+
+/// Whether `b` (or any nested table cell within it) contains a tracked-deleted run or paragraph mark.
+fn block_has_deletions(b: &Block) -> bool {
+    let mut stack = vec![b];
+    while let Some(blk) = stack.pop() {
+        match blk {
+            Block::Para(p) => {
+                if p.mark.del.is_some() || p.runs.iter().any(|r| r.props.del.is_some()) {
+                    return true;
+                }
+            }
+            Block::Table(t) => {
+                for cell in t.rows.iter().flat_map(|r| r.cells.iter()) {
+                    stack.extend(cell.blocks.iter().map(|x| &**x));
+                }
+            }
+        }
+    }
+    false
+}
+
+/// Accepts tracked deletions in loose block lists outside stories (such as note separators).
+fn accept_loose_block_deletions(blocks: &mut wordcraft_doc::Blocks) {
+    for b in blocks.iter_mut() {
+        if !block_has_deletions(b) {
+            continue;
+        }
+        let mut stack = vec![Arc::make_mut(b)];
+        while let Some(blk) = stack.pop() {
+            match blk {
+                Block::Para(p) => {
+                    let ranges: Vec<std::ops::Range<usize>> = p.run_ranges().filter(|(_, c)| c.del.is_some()).map(|(r, _)| r).collect();
+                    let mark_del = p.mark.del.is_some();
+                    if ranges.is_empty() && !mark_del {
+                        continue;
+                    }
+                    for r in ranges.into_iter().rev() {
+                        let _ = p.delete(r.start, r.end);
+                    }
+                    if mark_del {
+                        p.mark.del = None;
+                    }
+                    p.normalize();
+                    p.touch();
+                }
+                Block::Table(t) => {
+                    for cell in t.rows.iter_mut().flat_map(|r| r.cells.iter_mut()) {
+                        stack.extend(cell.blocks.iter_mut().map(Arc::make_mut));
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// Accepts all pre-existing tracked deletions across every story and note separator in `doc`,
+/// leaving pre-existing insertions, formatting revisions, and `doc.revisions` indices intact.
+///
+/// Word evaluates Compare against deletion-accepted input text so deleted runs never re-enter
+/// the comparison output as live text or spurious insertions/deletions.
+fn accept_tracked_deletions(doc: &mut Document) {
+    let mut deleted_notes = std::collections::HashSet::new();
+    let stories: Vec<StoryRef> = std::iter::once(StoryRef::Body).chain(doc.parts.keys().map(|k| StoryRef::Part(*k))).collect();
+    for story in stories {
+        for path in doc.para_paths(story).into_iter().rev() {
+            accept_para_deletions(doc, story, &path, &mut deleted_notes);
+        }
+    }
+    for sep in [&mut doc.footnote_separators, &mut doc.endnote_separators] {
+        for blocks in [&mut sep.separator, &mut sep.continuation_separator, &mut sep.continuation_notice].into_iter().flatten() {
+            accept_loose_block_deletions(blocks);
+        }
+    }
+    if !deleted_notes.is_empty() {
+        let mut live_notes = std::collections::HashSet::new();
+        for story in std::iter::once(StoryRef::Body).chain(doc.parts.keys().map(|k| StoryRef::Part(*k))) {
+            let own_part = match story {
+                StoryRef::Part(id) => Some(id),
+                StoryRef::Body => None,
+            };
+            for path in doc.para_paths(story) {
+                let Some(p) = doc.para(story, &path) else { continue };
+                for o in &p.objects {
+                    if let InlineObject::NoteRef { id, .. } = o
+                        && own_part != Some(*id)
+                    {
+                        live_notes.insert(*id);
+                    }
+                }
+            }
+        }
+        for id in deleted_notes {
+            if !live_notes.contains(&id)
+                && doc.parts.get(&id).is_some_and(|p| matches!(p.kind, wordcraft_doc::PartKind::Footnote | wordcraft_doc::PartKind::Endnote))
+            {
+                doc.parts.remove(&id);
+            }
+        }
+    }
+    doc.ensure_nonempty();
 }
 
 /// Paired, inserted, and deleted footnote/endnote IDs resolved by [`prepare_notes`].
