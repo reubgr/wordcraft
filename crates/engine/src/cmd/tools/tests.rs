@@ -1,6 +1,7 @@
 use super::*;
 
 mod compare_stage0;
+mod compare_tracked_deletions;
 
 #[test]
 fn compare_marks_changes() {
@@ -2766,7 +2767,7 @@ fn compare_strips_source_revisions_from_adopted_notes() {
     rev.run("references.footnote", &json!({"text": "Inserted note."})).unwrap();
 
     rev.doc.revisions.push(wordcraft_doc::Revision {
-        kind: RevisionKind::Delete,
+        kind: RevisionKind::Insert,
         author: "Other".into(),
         date: "2026-01-01T00:00:00Z".into(),
         move_name: None,
@@ -2776,7 +2777,7 @@ fn compare_strips_source_revisions_from_adopted_notes() {
             && let Some(Block::Para(p)) = part.blocks.first_mut().map(Arc::make_mut)
             && let Some(r) = p.runs.last_mut()
         {
-            r.props.del = Some(0);
+            r.props.ins = Some(0);
         }
     }
 
@@ -2784,7 +2785,7 @@ fn compare_strips_source_revisions_from_adopted_notes() {
     crate::io::save_path(&rev_path, &rev.doc).unwrap();
 
     let mut s = orig;
-    let _ = s.run("review.compare", &json!({"path": rev_path.to_string_lossy()})).unwrap();
+    let _ = s.run("review.compare", &json!({"path": rev_path.to_string_lossy(), "author": "Compare Author"})).unwrap();
     let _ = std::fs::remove_file(&rev_path);
 
     let paired_para = s.doc.parts.get(&orig_fn_id).unwrap().blocks[0].as_para().unwrap();
@@ -2797,6 +2798,14 @@ fn compare_strips_source_revisions_from_adopted_notes() {
     let inserted_para = inserted_part.blocks[0].as_para().unwrap();
     assert!(inserted_para.runs.iter().all(|r| r.props.del.is_none()), "adopted inserted note has no leaked del index");
     assert!(inserted_para.runs.iter().all(|r| r.props.ins.is_some()), "adopted inserted note carries Compare's ins mark");
+    assert!(
+        inserted_para.runs.iter().all(|r| r
+            .props
+            .ins
+            .and_then(|id| s.doc.revisions.get(id as usize))
+            .is_some_and(|rv| rv.author == "Compare Author")),
+        "adopted inserted note's ins mark belongs to Compare, not the revised source author"
+    );
 }
 
 /// #5842: Adopting or comparing revised note blocks copies and remaps media referenced directly
