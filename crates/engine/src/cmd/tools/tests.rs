@@ -2772,17 +2772,39 @@ fn compare_strips_source_revisions_from_adopted_notes() {
         date: "2026-01-01T00:00:00Z".into(),
         move_name: None,
     });
+    rev.doc.revisions.push(wordcraft_doc::Revision {
+        kind: RevisionKind::Format,
+        author: "Other".into(),
+        date: "2026-01-01T00:00:00Z".into(),
+        move_name: None,
+    });
     for part in rev.doc.parts.values_mut() {
         if part.kind == wordcraft_doc::PartKind::Footnote
             && let Some(Block::Para(p)) = part.blocks.first_mut().map(Arc::make_mut)
             && let Some(r) = p.runs.last_mut()
         {
             r.props.ins = Some(0);
+            if p.text.contains("Inserted note.") {
+                r.props.bold = Some(true);
+                r.props.fmt_change = wordcraft_doc::props::PropChange::boxed(1, CharProps::default());
+            } else {
+                r.props.fmt_change = wordcraft_doc::props::PropChange::boxed(1, CharProps { bold: Some(true), ..Default::default() });
+            }
         }
     }
 
     let rev_path = std::env::temp_dir().join(format!("wc-rev-srcrevs-{}.docx", std::process::id()));
     crate::io::save_path(&rev_path, &rev.doc).unwrap();
+    let reopened_rev = crate::io::open_path(&rev_path).unwrap();
+    assert!(
+        reopened_rev
+            .parts
+            .values()
+            .filter(|p| p.kind == wordcraft_doc::PartKind::Footnote)
+            .filter_map(|p| p.blocks.first().and_then(|b| b.as_para()))
+            .any(|p| p.text.contains("Inserted note.") && p.runs.iter().any(|r| r.props.fmt_change.is_some())),
+        "DOCX round-trip must retain the foreign formatting revision on the newly added note"
+    );
 
     let mut s = orig;
     let _ = s.run("review.compare", &json!({"path": rev_path.to_string_lossy(), "author": "Compare Author"})).unwrap();
@@ -2798,6 +2820,11 @@ fn compare_strips_source_revisions_from_adopted_notes() {
     let inserted_para = inserted_part.blocks[0].as_para().unwrap();
     assert!(inserted_para.runs.iter().all(|r| r.props.del.is_none()), "adopted inserted note has no leaked del index");
     assert!(inserted_para.runs.iter().all(|r| r.props.ins.is_some()), "adopted inserted note carries Compare's ins mark");
+    assert!(inserted_para.runs.iter().all(|r| r.props.fmt_change.is_none()), "adopted inserted note has no leaked foreign formatting revision");
+    assert!(
+        inserted_para.runs.iter().any(|r| r.props.bold == Some(true)),
+        "adopted inserted note preserves its run formatting after stripping foreign revision metadata"
+    );
     assert!(
         inserted_para.runs.iter().all(|r| r
             .props
